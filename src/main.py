@@ -1,4 +1,6 @@
 import argparse
+import sys
+import os
 from rich.console import Console
 
 console = Console(force_terminal=True, highlight=False)
@@ -13,7 +15,13 @@ def main():
     subparsers.add_parser("import",   help="Importar dataset oficial al proyecto.")
     subparsers.add_parser("analyze",  help="Analizar el dataset y generar reportes estadísticos.")
     subparsers.add_parser("validate", help="Validar integridad del dataset y generar DQI.")
-    subparsers.add_parser("augment",  help="Generar dataset sintético (Etapa 3).")
+
+    aug_parser = subparsers.add_parser("augment", help="Generar dataset sintético (Etapa 3).")
+    aug_parser.add_argument("--config", default="configs/synthetic_generation.yaml",
+                            help="Ruta al archivo de configuración YAML.")
+    aug_parser.add_argument("--n", type=int, default=None,
+                            help="Número de imágenes a generar (sobreescribe el config).")
+
     subparsers.add_parser("train",    help="Entrenar modelo (Etapa 4).")
     subparsers.add_parser("evaluate", help="Evaluar modelo (Etapa 5).")
     subparsers.add_parser("report",   help="Generar reporte comparativo (Etapa 6).")
@@ -22,7 +30,6 @@ def main():
 
     if args.command == "import":
         console.print("[bold yellow]Iniciando Dataset Importer...[/bold yellow]")
-        import sys
         sys.path.insert(0, ".")
         from utils.dataset_importer import run_import
         run_import()
@@ -40,7 +47,14 @@ def main():
         from analysis.dataset_validator import run_validation
         run_validation()
 
-    elif args.command in ("augment", "train", "evaluate", "report"):
+    elif args.command == "augment":
+        engine_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "synthetic_generation")
+        sys.path.insert(0, engine_dir)
+        from synthetic_generation.engine import SyntheticEngine
+        engine = SyntheticEngine(config_path=args.config)
+        engine.run(num_images=args.n)
+
+    elif args.command in ("train", "evaluate", "report"):
         console.print(f"[bold yellow]Comando '{args.command}' aún no implementado (etapas futuras).[/bold yellow]")
 
     else:

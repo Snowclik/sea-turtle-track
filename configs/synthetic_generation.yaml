@@ -1,0 +1,46 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# Adaptive Synthetic Dataset Generation Engine — Configuración
+# configs/synthetic_generation.yaml
+#
+# NUNCA escribir parámetros directamente en el código.
+# Todo debe leerse desde este archivo para garantizar reproducibilidad.
+# ══════════════════════════════════════════════════════════════════════════════
+
+engine:
+  seed: 42                  # Semilla global para reproducibilidad
+  num_images: 50            # Imágenes sintéticas a generar por defecto
+  output_format: jpg        # Formato de exportación (jpg | png)
+  output_quality: 95        # Calidad JPEG (0-100)
+  max_retries: 3            # Intentos antes de descartar una imagen inválida
+
+pipeline:
+  save_previews: true       # Generar imágenes comparativas
+  preview_max_width: 1280   # Ancho máximo de los previews en píxeles
+
+transforms:
+
+  HorizontalFlip:
+    enabled: true
+    probability: 0.5        # Probabilidad de aplicar esta transformación
+
+  RandomRotate:
+    enabled: true
+    probability: 0.7
+    min_angle: -15          # Ángulo mínimo en grados
+    max_angle: 15           # Ángulo máximo en grados
+
+  BrightnessContrast:
+    enabled: true
+    probability: 0.6
+    brightness_delta: 30    # Variación máxima de brillo (±)
+    contrast_min: 0.8       # Factor mínimo de contraste
+    contrast_max: 1.2       # Factor máximo de contraste
+
+paths:
+  source_images:   dataset/original
+  source_labels:   dataset/labels
+  output_images:   dataset/synthetic/images
+  output_labels:   dataset/synthetic/labels
+  output_previews: dataset/synthetic/previews
+  output_metadata: dataset/synthetic/metadata
+  run_stats:       dataset/synthetic/run_stats.json

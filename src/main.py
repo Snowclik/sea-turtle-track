@@ -36,9 +36,11 @@ def main():
     bench_subparsers.add_parser("sync", help="Sincronizar experimentos al Leaderboard")
     bench_subparsers.add_parser("report", help="Generar reportes HTML/PDF/Excel del Leaderboard")
 
-    subparsers.add_parser("train",    help="Entrenar modelo (Etapa 4/5).")
-    subparsers.add_parser("evaluate", help="Evaluar modelo (Etapa 5).")
-    subparsers.add_parser("report",   help="Generar reporte comparativo final (Etapa 6).")
+    train_parser = subparsers.add_parser("train", help="Entrenar modelo (Etapa 6).")
+    train_parser.add_argument("exp_id", help="Identificador del experimento (ej: baseline, exp_2026...)")
+
+    subparsers.add_parser("evaluate", help="Evaluar modelo (Etapa 7).")
+    subparsers.add_parser("report",   help="Generar reporte comparativo final (Etapa 8).")
 
     args = parser.parse_args()
 
@@ -126,7 +128,15 @@ def main():
         else:
             bench_parser.print_help()
 
-    elif args.command in ("train", "evaluate", "report"):
+    elif args.command == "train":
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        sys.path.insert(0, os.path.join(base_dir, "src"))
+        from training import LocalTrainingManager
+        
+        manager = LocalTrainingManager(base_dir)
+        manager.train_experiment(args.exp_id)
+
+    elif args.command in ("evaluate", "report"):
         console.print(f"[bold yellow]Comando '{args.command}' aún no implementado (etapas futuras).[/bold yellow]")
 
     else:

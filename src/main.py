@@ -38,6 +38,8 @@ def main():
 
     train_parser = subparsers.add_parser("train", help="Entrenar modelo (Etapa 6).")
     train_parser.add_argument("exp_id", help="Identificador del experimento (ej: baseline, exp_2026...)")
+    
+    subparsers.add_parser("audit", help="Auditoría completa del ecosistema (Etapa 6.5).")
 
     subparsers.add_parser("evaluate", help="Evaluar modelo (Etapa 7).")
     subparsers.add_parser("report",   help="Generar reporte comparativo final (Etapa 8).")
@@ -135,6 +137,14 @@ def main():
         
         manager = LocalTrainingManager(base_dir)
         manager.train_experiment(args.exp_id)
+        
+    elif args.command == "audit":
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        sys.path.insert(0, os.path.join(base_dir, "src"))
+        from verification import EcosystemAuditor
+        
+        auditor = EcosystemAuditor(base_dir)
+        auditor.audit()
 
     elif args.command in ("evaluate", "report"):
         console.print(f"[bold yellow]Comando '{args.command}' aún no implementado (etapas futuras).[/bold yellow]")

@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-07-13T18:11:44",
+    "last_updated": "2026-07-13T18:12:40",
     "experiments": {
         "exp_20260713_175742_5A94": {
             "metadata": {
@@ -86,6 +86,29 @@
                 "transforms_applied": [
                     "HorizontalFlip",
                     "RandomRotate",
+                    "BrightnessContrast"
+                ]
+            },
+            "training_metrics": {
+                "mAP_50": null,
+                "mAP_50_95": null,
+                "precision": null,
+                "recall": null
+            }
+        },
+        "exp_20260713_181112_1FDC": {
+            "metadata": {
+                "config_name": "photometric_only.yaml",
+                "dataset_fingerprint": 303,
+                "pipeline_fingerprint": "29988acd47192b424ff386ee702f4ecc5b8d25ca9dcf40b7e693602706abf426",
+                "date": "2026-07-13T18:11:12",
+                "status": "DATASET_READY"
+            },
+            "dataset_stats": {
+                "num_images": 100,
+                "num_objects": 0,
+                "generation_time_s": 10.71,
+                "transforms_applied": [
                     "BrightnessContrast"
                 ]
             },

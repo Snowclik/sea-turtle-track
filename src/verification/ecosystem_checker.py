@@ -28,9 +28,9 @@ class EcosystemChecker:
         
         # Original images might be jpg, png, jpeg
         import glob
-        imgs = []
-        for ext in ("*.jpg", "*.png", "*.jpeg", "*.JPG", "*.PNG", "*.JPEG"):
-            imgs.extend(glob.glob(os.path.join(ds_orig, ext)))
+        imgs = set()
+        for ext in ("*.jpg", "*.png", "*.jpeg"):
+            imgs.update(glob.glob(os.path.join(ds_orig, ext)))
             
         lbls = glob.glob(os.path.join(ds_lbls, "*.txt"))
         if len(imgs) != 30 or len(lbls) != 30: return False

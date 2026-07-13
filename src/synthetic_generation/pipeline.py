@@ -15,15 +15,14 @@ El pipeline NO escribe archivos. Eso es responsabilidad del Exporter.
 
 from __future__ import annotations
 import copy
-from typing import List, Tuple, Dict, Any
+from typing import List, Tuple
 
 import numpy as np
 
-from transforms import Transform
+from transforms.base import Transform, Polygon
 from validator import validate_polygons, clip_polygon
 from metadata import TransformRecord
 
-Polygon = List[Tuple[float, float]]
 
 
 class SyntheticPipeline:

@@ -22,6 +22,10 @@ def main():
     aug_parser.add_argument("--n", type=int, default=None,
                             help="Número de imágenes a generar (sobreescribe el config).")
 
+    vrf_parser = subparsers.add_parser("verify", help="Validar experimento sintético (Etapa 3.5).")
+    vrf_parser.add_argument("--exp", default="latest",
+                            help="ID del experimento a verificar, o 'latest' para el más reciente.")
+
     subparsers.add_parser("train",    help="Entrenar modelo (Etapa 4).")
     subparsers.add_parser("evaluate", help="Evaluar modelo (Etapa 5).")
     subparsers.add_parser("report",   help="Generar reporte comparativo (Etapa 6).")
@@ -53,6 +57,30 @@ def main():
         from synthetic_generation.engine import SyntheticEngine
         engine = SyntheticEngine(config_path=args.config)
         engine.run(num_images=args.n)
+
+    elif args.command == "verify":
+        engine_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "synthetic_generation")
+        sys.path.insert(0, engine_dir)
+        from synthetic_generation.verifier import ExperimentVerifier
+        import glob
+        
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        experiments_dir = os.path.join(base_dir, "experiments")
+        
+        if args.exp == "latest":
+            exps = sorted(glob.glob(os.path.join(experiments_dir, "exp_*")), key=os.path.getmtime, reverse=True)
+            if not exps:
+                console.print("[bold red]No se encontraron experimentos en experiments/[/bold red]")
+                sys.exit(1)
+            exp_dir = exps[0]
+        else:
+            exp_dir = os.path.join(experiments_dir, args.exp)
+            if not os.path.isdir(exp_dir):
+                console.print(f"[bold red]Experimento no encontrado: {exp_dir}[/bold red]")
+                sys.exit(1)
+                
+        verifier = ExperimentVerifier(exp_dir)
+        verifier.run()
 
     elif args.command in ("train", "evaluate", "report"):
         console.print(f"[bold yellow]Comando '{args.command}' aún no implementado (etapas futuras).[/bold yellow]")

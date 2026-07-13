@@ -8,7 +8,7 @@
 
 engine:
   seed: 42                  # Semilla global para reproducibilidad
-  num_images: 50            # Imágenes sintéticas a generar por defecto
+  num_images: 100           # Imágenes sintéticas a generar por defecto
   output_format: jpg        # Formato de exportación (jpg | png)
   output_quality: 95        # Calidad JPEG (0-100)
   max_retries: 3            # Intentos antes de descartar una imagen inválida
@@ -16,6 +16,13 @@ engine:
 pipeline:
   save_previews: true       # Generar imágenes comparativas
   preview_max_width: 1280   # Ancho máximo de los previews en píxeles
+
+validation:
+  enabled: true
+  generate_reports: true    # HTML, PDF, JSON
+  visual_samples: 10        # Cantidad de comparativas visuales a mostrar en el reporte
+  min_success_rate: 99.0    # Porcentaje mínimo de éxito para considerar validado el motor
+  max_errors: 0             # Cantidad máxima de errores críticos permitidos
 
 transforms:
 

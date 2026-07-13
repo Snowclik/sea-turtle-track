@@ -1,0 +1,38 @@
+# Entornos virtuales
+venv/
+env/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Logs
+logs/
+*.log
+
+# Entorno de usuario y SO
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Datos e imágenes
+dataset/original/
+dataset/labels/
+dataset/synthetic/
+dataset/validation/
+dataset/test/
+dataset/preview/
+
+# Experimentos
+experiments/
+models/
+
+# Reportes (excepto plantillas)
+reports/
+!reports/.gitkeep

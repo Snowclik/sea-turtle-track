@@ -1,0 +1,17 @@
+# Configuración para Generación Sintética
+# Este archivo centraliza los parámetros de las transformaciones sintéticas.
+
+baseline:
+  num_images: 0
+
+aug500:
+  num_images: 500
+
+aug1000:
+  num_images: 1000
+
+aug3000:
+  num_images: 3000
+
+aug5000:
+  num_images: 5000

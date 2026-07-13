@@ -1,0 +1,6 @@
+albumentations
+opencv-python
+numpy
+matplotlib
+pyyaml
+tqdm

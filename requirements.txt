@@ -4,3 +4,8 @@ numpy
 matplotlib
 pyyaml
 tqdm
+Pillow
+Jinja2
+reportlab
+openpyxl
+rich

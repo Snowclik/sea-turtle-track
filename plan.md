@@ -1,402 +1,214 @@
-# Adaptive Synthetic Few-Shot Pipeline (ASFP)
-## Plan Maestro de Desarrollo
-### Etapa 1 — Arquitectura Base del Proyecto
+# Etapa 2 - Dataset Analyzer
+
+## Objetivo
+
+Desarrollar un módulo denominado **Dataset Analyzer** que analice automáticamente el conjunto de imágenes originales y genere un reporte completo del dataset sin modificar ningún archivo.
+
+El análisis debe ser completamente automático.
+
+No debe requerir intervención manual.
+
+No debe modificar las imágenes.
+
+No debe modificar las etiquetas.
+
+Únicamente debe analizar y generar reportes.
 
 ---
 
-# Visión del Proyecto
+# Entrada
 
-Este proyecto no consiste únicamente en entrenar un modelo de detección de objetos.
+dataset/
 
-El propósito es diseñar una metodología reproducible para entrenar detectores de objetos cuando únicamente existe un conjunto reducido de imágenes reales.
+    original/
 
-La investigación busca demostrar que un conjunto pequeño de imágenes cuidadosamente seleccionadas, combinado con generación sintética avanzada y transferencia de aprendizaje, puede producir un rendimiento competitivo frente a conjuntos de entrenamiento mucho mayores.
-
-Toda la arquitectura deberá diseñarse pensando en una futura publicación científica, por lo que la reproducibilidad, documentación y modularidad son requisitos obligatorios.
+    labels/
 
 ---
 
-# Objetivo de la Etapa 1
+# Salidas
 
-Construir la infraestructura completa del proyecto.
+reports/
 
-**No se entrenará ningún modelo.**
+    dataset_report.html
 
-**No se generarán imágenes todavía.**
+    dataset_report.pdf
 
-**No se utilizará YOLO.**
+    dataset_statistics.json
 
-**No se utilizará Roboflow.**
+    dataset_statistics.csv
 
-El único objetivo de esta etapa es dejar preparada una arquitectura profesional que permita desarrollar posteriormente todo el pipeline de investigación.
+paper/
 
----
+    figures/
 
-# Dataset Inicial
-
-El proyecto utilizará inicialmente:
-
-- 31 imágenes originales capturadas en Playa Mata Oscura.
-- Sus respectivas anotaciones en formato YOLO.
-
-Las imágenes originales son el activo más importante del proyecto.
-
-Nunca deberán modificarse.
-
-Nunca deberán sobrescribirse.
-
-Todo procesamiento deberá generar nuevos archivos.
+    paper/tables/
 
 ---
 
-# Filosofía del Desarrollo
+# Información a extraer
 
-Todo el código deberá cumplir los siguientes principios.
+## Información general
 
-## Modularidad
-
-Cada módulo debe resolver únicamente un problema.
-
-No crear archivos enormes.
-
-No mezclar responsabilidades.
-
----
-
-## Reproducibilidad
-
-Todo experimento deberá poder repetirse utilizando únicamente un archivo de configuración.
-
-No deben existir parámetros escritos directamente dentro del código.
+- Número total de imágenes
+- Número total de etiquetas
+- Número total de objetos
+- Clases existentes
+- Imágenes sin etiquetas
+- Etiquetas sin imagen
 
 ---
 
-## Escalabilidad
+## Resoluciones
 
-La arquitectura deberá permitir agregar nuevos módulos sin necesidad de modificar los existentes.
+- Resolución mínima
+- Resolución máxima
+- Resolución promedio
 
----
-
-## Investigación
-
-Cada etapa deberá producir resultados reutilizables posteriormente dentro del artículo científico.
+Crear un histograma.
 
 ---
 
-# Tecnologías
+## Tamaño de archivos
 
-Lenguaje principal
-
-- Python
-
-Editor
-
-- Visual Studio Code
-
-Control de versiones
-
-- Git
-
-Bibliotecas
-
-- Albumentations
-- OpenCV
-- NumPy
-- Matplotlib
-- PyYAML
-- tqdm
+- mínimo
+- máximo
+- promedio
 
 ---
 
-# Arquitectura del Proyecto
+## Bounding Boxes
 
-```
+Calcular automáticamente
 
-adaptive-synthetic-fewshot/
-
-│
-
-├── dataset/
-
-│ ├── original/
-
-│ ├── labels/
-
-│ ├── synthetic/
-
-│ ├── validation/
-
-│ ├── test/
-
-│ └── preview/
-
-│
-
-├── experiments/
-
-│ ├── exp01_baseline/
-
-│ ├── exp02_aug500/
-
-│ ├── exp03_aug1000/
-
-│ ├── exp04_aug3000/
-
-│ └── exp05_aug5000/
-
-│
-
-├── paper/
-
-│ ├── figures/
-
-│ ├── tables/
-
-│ ├── diagrams/
-
-│ └── drafts/
-
-│
-
-├── reports/
-
-├── logs/
-
-├── notebooks/
-
-├── models/
-
-│
-
-├── configs/
-
-│ └── augmentation.yaml
-
-│
-
-├── src/
-
-│ ├── synthetic_generation/
-
-│ │ ├── augment.py
-
-│ │ ├── pipeline.py
-
-│ │ └── config.py
-
-│ │
-
-│ ├── analysis/
-
-│ │ ├── dataset_stats.py
-
-│ │ ├── compare_experiments.py
-
-│ │ ├── plot_metrics.py
-
-│ │ └── confusion_matrix.py
-
-│ │
-
-│ ├── visualization/
-
-│ ├── utils/
-
-│ └── main.py
-
-│
-
-├── requirements.txt
-
-├── README.md
-
-└── .gitignore
-
-```
-
----
-
-# Tareas de la Etapa 1
-
-## 1. Crear la arquitectura del proyecto
-
-Construir exactamente la estructura anterior.
-
-No agregar carpetas innecesarias.
-
----
-
-## 2. Configurar el entorno
-
-Crear un entorno virtual.
-
-Instalar únicamente:
-
-- albumentations
-- opencv-python
-- numpy
-- matplotlib
-- pyyaml
-- tqdm
-
-Generar automáticamente `requirements.txt`.
-
----
-
-## 3. Preparar el dataset
-
-Copiar las 31 imágenes originales dentro de:
-
-```
-
-dataset/original/
-
-```
-
-Copiar todas las etiquetas YOLO dentro de:
-
-```
-
-dataset/labels/
-
-```
-
-No modificar absolutamente ningún archivo.
-
----
-
-## 4. Construir el módulo de análisis del dataset
-
-Crear `dataset_stats.py`.
-
-Este módulo únicamente analizará el dataset.
-
-No modificará imágenes.
-
-Deberá calcular automáticamente:
-
-- cantidad de imágenes
-- resolución promedio
-- resolución mínima y máxima
+- cantidad total
 - ancho promedio
 - alto promedio
-- tamaño promedio
-- número de objetos
-- cantidad de bounding boxes
-- porcentaje de ocupación
-- distribución espacial del objeto
-- orientación de imágenes
-- estadísticas generales
+- área promedio
+- porcentaje ocupado
+- posición promedio
 
-Toda la información deberá exportarse posteriormente a un reporte.
+Generar histogramas.
 
 ---
 
-## 5. Sistema de configuración
+## Distribución espacial
 
-Toda la configuración deberá almacenarse en:
-
-```
-
-configs/augmentation.yaml
-
-```
-
-Nunca utilizar valores fijos dentro del código.
+Crear un heatmap mostrando dónde aparecen normalmente los rastros.
 
 ---
 
-## 6. Preparar el motor de generación sintética
+## Estadísticas por imagen
 
-Crear la arquitectura del módulo `synthetic_generation`.
+Para cada imagen generar
 
-Todavía no implementar lógica.
+- nombre
+- resolución
+- tamaño
+- cantidad de objetos
+- área ocupada
 
-Debe quedar preparado para soportar posteriormente:
-
-- Albumentations
-- Transformaciones geométricas
-- Transformaciones fotométricas
-- Escenarios sintéticos
-- Fondos sintéticos
-- Exportación automática
+Guardar en CSV.
 
 ---
 
-## 7. Sistema de visualización
+## Análisis de color
 
-Preparar la arquitectura del módulo `visualization`.
+Calcular automáticamente
 
-Posteriormente deberá permitir visualizar:
-
-Imagen original
-
-↓
-
-Imagen sintética
-
-↓
-
-Bounding Boxes
-
-↓
-
-Transformaciones aplicadas
-
-No implementar todavía.
+- brillo promedio
+- contraste
+- histograma RGB
+- histograma HSV
 
 ---
 
-## 8. Inicializar Git
+## EXIF
 
-Realizar el primer commit.
+Si existen metadatos, extraer automáticamente
 
-Mensaje sugerido:
+- fecha
+- hora
+- GPS
+- altitud
+- cámara
+- fabricante
+- modelo
+- orientación
 
-```
+Si un campo no existe colocar
 
-Initial research architecture
-
-```
+N/A
 
 ---
 
-## 9. README
+## Visualizaciones
 
-Crear un README profesional.
+Generar automáticamente
 
-Debe explicar:
+- histogramas
+- gráficos de barras
+- gráficos circulares
+- heatmap de bounding boxes
 
-- objetivo del proyecto
-- filosofía
-- estructura
-- arquitectura
-- flujo de trabajo
-- tecnologías
-- licencia
+Guardar todas las figuras en
+
+paper/figures/
+
+---
+
+## Reporte HTML
+
+Crear un reporte moderno con
+
+- resumen
+- tablas
+- gráficos
+- estadísticas
+
+---
+
+## Reporte PDF
+
+Generar automáticamente un PDF profesional utilizando la información del reporte HTML.
+
+---
+
+## Exportación
+
+Exportar automáticamente
+
+dataset_statistics.json
+
+dataset_statistics.csv
 
 ---
 
 # Restricciones
 
-Durante esta etapa está prohibido:
+No utilizar IA.
 
-- entrenar modelos
-- utilizar YOLO
-- utilizar Roboflow
-- utilizar ONNX
-- utilizar React
-- generar datasets sintéticos
-- realizar inferencias
+No modificar imágenes.
 
-La única finalidad es construir una arquitectura sólida y preparada para las siguientes etapas.
+No modificar etiquetas.
+
+No generar imágenes sintéticas.
+
+No entrenar modelos.
+
+Este módulo es únicamente un analizador del dataset.
 
 ---
 
-# Resultado Esperado
+# Objetivo científico
 
-Al finalizar esta etapa el proyecto deberá estar completamente organizado, documentado y preparado para comenzar el desarrollo del **Adaptive Synthetic Few-Shot Pipeline (ASFP)**.
+Este reporte será la línea base del proyecto.
 
-No debe existir lógica experimental todavía.
+Posteriormente, el mismo módulo deberá poder analizar el dataset sintético para comparar ambos conjuntos y verificar si la generación sintética conserva una distribución visual coherente.
 
-El repositorio debe representar la base de una investigación científica reproducible y escalable.
+
+Una mejora que haría desde ahora
+
+En lugar de llamar al archivo dataset_stats.py, lo renombraría a:
+
+dataset_analyzer.py

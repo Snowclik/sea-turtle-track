@@ -26,9 +26,19 @@ def main():
     vrf_parser.add_argument("--exp", default="latest",
                             help="ID del experimento a verificar, o 'latest' para el más reciente.")
 
-    subparsers.add_parser("train",    help="Entrenar modelo (Etapa 4).")
+    exp_parser = subparsers.add_parser("experiment", help="Adaptive Synthetic Generation Framework (Etapa 4).")
+    exp_subparsers = exp_parser.add_subparsers(dest="exp_command", help="Comandos de experimentación")
+    exp_subparsers.add_parser("run", help="Ejecutar cola de experimentos (YAMLs en configs/experiments/)")
+    exp_subparsers.add_parser("compare", help="Generar reporte comparativo de experimentos")
+    
+    bench_parser = subparsers.add_parser("benchmark", help="Benchmark Framework (Etapa 5).")
+    bench_subparsers = bench_parser.add_subparsers(dest="bench_command", help="Comandos de benchmark")
+    bench_subparsers.add_parser("sync", help="Sincronizar experimentos al Leaderboard")
+    bench_subparsers.add_parser("report", help="Generar reportes HTML/PDF/Excel del Leaderboard")
+
+    subparsers.add_parser("train",    help="Entrenar modelo (Etapa 4/5).")
     subparsers.add_parser("evaluate", help="Evaluar modelo (Etapa 5).")
-    subparsers.add_parser("report",   help="Generar reporte comparativo (Etapa 6).")
+    subparsers.add_parser("report",   help="Generar reporte comparativo final (Etapa 6).")
 
     args = parser.parse_args()
 
@@ -81,6 +91,40 @@ def main():
                 
         verifier = ExperimentVerifier(exp_dir)
         verifier.run()
+        
+    elif args.command == "experiment":
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        sys.path.insert(0, os.path.join(base_dir, "src"))
+        from experiments import ASGFManager, ExperimentComparator
+        
+        configs_dir = os.path.join(base_dir, "configs", "experiments")
+        exp_out_dir = os.path.join(base_dir, "experiments")
+        
+        if args.exp_command == "run":
+            manager = ASGFManager(configs_dir, exp_out_dir)
+            manager.run_batch()
+            
+        elif args.exp_command == "compare":
+            comparator = ExperimentComparator(exp_out_dir)
+            summaries = comparator.load_all_summaries()
+            comparator.display_comparison(summaries)
+            
+        else:
+            exp_parser.print_help()
+            
+    elif args.command == "benchmark":
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        sys.path.insert(0, os.path.join(base_dir, "src"))
+        from benchmark import BenchmarkManager
+        
+        manager = BenchmarkManager(base_dir)
+        
+        if args.bench_command == "sync":
+            manager.sync()
+        elif args.bench_command == "report":
+            manager.report()
+        else:
+            bench_parser.print_help()
 
     elif args.command in ("train", "evaluate", "report"):
         console.print(f"[bold yellow]Comando '{args.command}' aún no implementado (etapas futuras).[/bold yellow]")

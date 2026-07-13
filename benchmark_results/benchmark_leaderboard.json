@@ -1,0 +1,100 @@
+{
+    "last_updated": "2026-07-13T18:11:44",
+    "experiments": {
+        "exp_20260713_175742_5A94": {
+            "metadata": {
+                "config_name": "synthetic_generation.yaml",
+                "dataset_fingerprint": 42,
+                "pipeline_fingerprint": "a8b73d7e401d8422abc3f3afbcc3cda162ed62586944da0f5c5c6a3233944bd9",
+                "date": "2026-07-13T17:57:42",
+                "status": "DATASET_READY"
+            },
+            "dataset_stats": {
+                "num_images": 100,
+                "num_objects": 0,
+                "generation_time_s": 13.92,
+                "transforms_applied": [
+                    "HorizontalFlip",
+                    "RandomRotate",
+                    "BrightnessContrast"
+                ]
+            },
+            "training_metrics": {
+                "mAP_50": null,
+                "mAP_50_95": null,
+                "precision": null,
+                "recall": null
+            }
+        },
+        "exp_20260713_180818_A2F7": {
+            "metadata": {
+                "config_name": "baseline.yaml",
+                "dataset_fingerprint": 101,
+                "pipeline_fingerprint": "e3a7f44954bd272e2b453b1136d44dbb6536a73b7bef405c305fd50da6d1fd0f",
+                "date": "2026-07-13T18:08:18",
+                "status": "DATASET_READY"
+            },
+            "dataset_stats": {
+                "num_images": 100,
+                "num_objects": 0,
+                "generation_time_s": 9.88,
+                "transforms_applied": []
+            },
+            "training_metrics": {
+                "mAP_50": null,
+                "mAP_50_95": null,
+                "precision": null,
+                "recall": null
+            }
+        },
+        "exp_20260713_180903_130A": {
+            "metadata": {
+                "config_name": "geometric_only.yaml",
+                "dataset_fingerprint": 202,
+                "pipeline_fingerprint": "ec26477150a100a3fe889066c4ee76c5fd6e61a8b66b6c53a975b4118567263b",
+                "date": "2026-07-13T18:09:03",
+                "status": "DATASET_READY"
+            },
+            "dataset_stats": {
+                "num_images": 100,
+                "num_objects": 0,
+                "generation_time_s": 14.04,
+                "transforms_applied": [
+                    "HorizontalFlip",
+                    "RandomRotate"
+                ]
+            },
+            "training_metrics": {
+                "mAP_50": null,
+                "mAP_50_95": null,
+                "precision": null,
+                "recall": null
+            }
+        },
+        "exp_20260713_181002_5233": {
+            "metadata": {
+                "config_name": "mixed.yaml",
+                "dataset_fingerprint": 404,
+                "pipeline_fingerprint": "9bf8425396ef5e840ca63cad85e9f62edcbfc606925e039161954666a07536f0",
+                "date": "2026-07-13T18:10:02",
+                "status": "DATASET_READY"
+            },
+            "dataset_stats": {
+                "num_images": 100,
+                "num_objects": 0,
+                "generation_time_s": 22.77,
+                "transforms_applied": [
+                    "HorizontalFlip",
+                    "RandomRotate",
+                    "BrightnessContrast"
+                ]
+            },
+            "training_metrics": {
+                "mAP_50": null,
+                "mAP_50_95": null,
+                "precision": null,
+                "recall": null
+            }
+        }
+    }
+}

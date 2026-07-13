@@ -1,0 +1,20 @@
+version: "1.0"
+
+model:
+  architecture: yolo26n
+
+training:
+  epochs: 300
+  imgsz: 640
+  batch: 16
+  optimizer: auto
+  patience: 50
+  seed: 42
+  workers: 4
+
+evaluation:
+  conf: 0.25
+  iou: 0.5
+
+hardware:
+  device: auto

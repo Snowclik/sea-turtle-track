@@ -44,7 +44,11 @@ class BenchmarkReporter:
         ws = wb.active
         ws.title = "Leaderboard"
         
-        headers = ["Exp ID", "Date", "Config", "Status", "Images", "mAP@50", "mAP@50-95", "Precision", "Recall"]
+        headers = [
+            "Exp ID", "Date", "Config", "Status", "Images", 
+            "mAP@50", "mAP@50-95", "Precision", "Recall", "F1-Score",
+            "Train Time (s)", "Infer Time (ms)", "Size (MB)", "Params (M)"
+        ]
         ws.append(headers)
         
         ranked = self.comparator.get_ranked_experiments(metric="date")
@@ -62,7 +66,12 @@ class BenchmarkReporter:
                 train.get("mAP_50", ""),
                 train.get("mAP_50_95", ""),
                 train.get("precision", ""),
-                train.get("recall", "")
+                train.get("recall", ""),
+                train.get("f1_score", ""),
+                train.get("training_time_s", ""),
+                train.get("inference_time_ms", ""),
+                train.get("model_size_mb", ""),
+                train.get("params_m", "")
             ]
             ws.append(row)
             
@@ -80,8 +89,8 @@ class BenchmarkReporter:
     <style>
         body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
         h1, h2 { color: #2c3e50; }
-        table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 30px; font-size: 14px; }
+        th, td { border: 1px solid #ddd; padding: 6px; text-align: left; }
         th { background-color: #f2f2f2; }
     </style>
 </head>
@@ -89,7 +98,9 @@ class BenchmarkReporter:
     <h1>Benchmark Leaderboard</h1>
     <table>
         <tr>
-            <th>Exp ID</th><th>Date</th><th>Config</th><th>Images</th><th>Status</th><th>mAP@50</th>
+            <th>Exp ID</th><th>Config</th><th>Images</th><th>Status</th>
+            <th>mAP@50</th><th>Precision</th><th>Recall</th><th>F1-Score</th>
+            <th>Train (s)</th><th>Size (MB)</th>
         </tr>
 """
         for exp_id, record in ranked:
@@ -100,11 +111,15 @@ class BenchmarkReporter:
             html += f"""
         <tr>
             <td>{exp_id}</td>
-            <td>{meta.get("date", "")}</td>
             <td>{meta.get("config_name", "")}</td>
             <td>{stats.get("num_images", 0)}</td>
             <td>{meta.get("status", "")}</td>
             <td>{train.get("mAP_50", "N/A")}</td>
+            <td>{train.get("precision", "N/A")}</td>
+            <td>{train.get("recall", "N/A")}</td>
+            <td>{train.get("f1_score", "N/A")}</td>
+            <td>{train.get("training_time_s", "N/A")}</td>
+            <td>{train.get("model_size_mb", "N/A")}</td>
         </tr>
 """
         html += """

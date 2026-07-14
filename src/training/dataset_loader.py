@@ -49,8 +49,22 @@ class DatasetLoader:
         if not os.path.isdir(images_dir) or not os.path.isdir(labels_dir):
             raise FileNotFoundError(f"El dataset {self.experiment_path} está incompleto o corrupto.")
             
+        # Generar data.yaml
+        data_yaml_path = os.path.join(self.experiment_path, "data.yaml")
+        yaml_content = f"""
+train: {images_dir}
+val: {images_dir}
+test: {images_dir}
+
+nc: 1
+names: ['nesting_track']
+"""
+        with open(data_yaml_path, "w", encoding="utf-8") as f:
+            f.write(yaml_content)
+            
         return {
             "experiment_path": self.experiment_path,
             "images": images_dir,
-            "labels": labels_dir
+            "labels": labels_dir,
+            "data_yaml": data_yaml_path
         }

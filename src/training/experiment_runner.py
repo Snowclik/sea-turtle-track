@@ -71,10 +71,14 @@ class TrainingRunner:
         )
         console.print(f"  [green]✔ Fingerprint sellado.[/green]")
         
-        # 6. Simular Entrenamiento
-        console.print("  [dim]>> Iniciando simulación del Trainer...[/dim]")
+        console.print("  [dim]>> Iniciando entrenamiento...[/dim]")
         trainer = YoloTrainer(model, cfg, ds_info, train_out)
         metrics = trainer.train()
         
-        console.print("\n[bold yellow]⚠ Training Framework preparado.[/bold yellow]")
-        console.print("[bold yellow]El entrenamiento real con YOLO26 está diferido para la siguiente etapa.[/bold yellow]\n")
+        # 7. Guardar métricas
+        summary_path = os.path.join(train_out, "training_summary.json")
+        with open(summary_path, "w", encoding="utf-8") as f:
+            json.dump(metrics, f, indent=4)
+        
+        console.print(f"  [green]✔ Training Summary guardado:[/green] {os.path.basename(summary_path)}")
+        console.print(f"\n[bold green]Entrenamiento completado para {self.experiment_id}[/bold green]\n")

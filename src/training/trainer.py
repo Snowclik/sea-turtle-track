@@ -24,15 +24,48 @@ class YoloTrainer:
         self.callbacks = TrainingCallbacks()
 
     def train(self):
-        """Simula el flujo de entrenamiento para validación arquitectónica."""
+        """Ejecuta el entrenamiento local de YOLO26."""
         self.callbacks.on_train_start()
         
-        # Simulación
-        time.sleep(0.5)
+        # Iniciar entrenamiento
+        # Parámetros estrictos desde el Protocolo Experimental
+        device = self.cfg.get("hardware", {}).get("device", "auto")
+        if device == "auto":
+            import torch
+            device = "0" if torch.cuda.is_available() else "cpu"
+            
+        train_args = {
+            "data": self.dataset_info["data_yaml"],
+            "epochs": self.cfg.get("training", {}).get("epochs", 300),
+            "imgsz": self.cfg.get("training", {}).get("imgsz", 640),
+            "batch": self.cfg.get("training", {}).get("batch", 16),
+            "optimizer": self.cfg.get("training", {}).get("optimizer", "auto"),
+            "patience": self.cfg.get("training", {}).get("patience", 50),
+            "seed": self.cfg.get("training", {}).get("seed", 42),
+            "workers": self.cfg.get("training", {}).get("workers", 4),
+            "device": device,
+            "project": self.output_dir,
+            "name": "yolo_run",
+            "exist_ok": True,
+            "verbose": False
+        }
+        
+        # Validar configuración de IOU y Confidencia
+        # YOLO usa esto más en validación e inferencia, pero lo seteamos si el train lo acepta
+        
+        import time
+        start_t = time.time()
+        self.model.train(**train_args)
+        end_t = time.time()
         
         self.callbacks.on_train_end()
         
-        # Simular exportación
-        self.exporter.export(self.model)
+        # Exportación (ONNX, best, last)
+        self.exporter.export(self.model, os.path.join(self.output_dir, "yolo_run"))
         
-        return self.metrics.collect()
+        # Colectar métricas
+        return self.metrics.collect(
+            yolo_run_dir=os.path.join(self.output_dir, "yolo_run"), 
+            total_time=end_t - start_t,
+            model_instance=self.model
+        )

@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-07-13T18:12:40",
+    "last_updated": "2026-07-13T19:06:11",
     "experiments": {
         "exp_20260713_175742_5A94": {
             "metadata": {
@@ -23,7 +23,12 @@
                 "mAP_50": null,
                 "mAP_50_95": null,
                 "precision": null,
-                "recall": null
+                "recall": null,
+                "f1_score": null,
+                "training_time_s": null,
+                "inference_time_ms": null,
+                "model_size_mb": null,
+                "params_m": null
             }
         },
         "exp_20260713_180818_A2F7": {
@@ -44,7 +49,12 @@
                 "mAP_50": null,
                 "mAP_50_95": null,
                 "precision": null,
-                "recall": null
+                "recall": null,
+                "f1_score": null,
+                "training_time_s": null,
+                "inference_time_ms": null,
+                "model_size_mb": null,
+                "params_m": null
             }
         },
         "exp_20260713_180903_130A": {
@@ -68,7 +78,12 @@
                 "mAP_50": null,
                 "mAP_50_95": null,
                 "precision": null,
-                "recall": null
+                "recall": null,
+                "f1_score": null,
+                "training_time_s": null,
+                "inference_time_ms": null,
+                "model_size_mb": null,
+                "params_m": null
             }
         },
         "exp_20260713_181002_5233": {
@@ -93,7 +108,12 @@
                 "mAP_50": null,
                 "mAP_50_95": null,
                 "precision": null,
-                "recall": null
+                "recall": null,
+                "f1_score": null,
+                "training_time_s": null,
+                "inference_time_ms": null,
+                "model_size_mb": null,
+                "params_m": null
             }
         },
         "exp_20260713_181112_1FDC": {
@@ -116,7 +136,12 @@
                 "mAP_50": null,
                 "mAP_50_95": null,
                 "precision": null,
-                "recall": null
+                "recall": null,
+                "f1_score": null,
+                "training_time_s": null,
+                "inference_time_ms": null,
+                "model_size_mb": null,
+                "params_m": null
             }
         }
     }

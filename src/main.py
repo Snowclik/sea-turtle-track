@@ -47,6 +47,9 @@ def main():
     camp_parser = subparsers.add_parser("run-campaign", help="Ejecutar campaña masiva experimental (Etapa 8).")
     camp_parser.add_argument("campaign_id", help="ID de la campaña (ej: 001)")
 
+    inf_parser = subparsers.add_parser("infer", help="Realizar inferencia con el modelo (Etapa 9).")
+    inf_parser.add_argument("target", help="Objetivo de inferencia (ej: external)")
+
     subparsers.add_parser("evaluate", help="Evaluar modelo (Etapa 7).")
     subparsers.add_parser("report",   help="Generar reporte comparativo final (Etapa 8).")
 
@@ -172,6 +175,17 @@ def main():
         from benchmark.campaign_runner import CampaignRunner
         runner = CampaignRunner(args.campaign_id, base_dir)
         runner.run_all()
+        
+    elif args.command == "infer":
+        if args.target == "external":
+            base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+            sys.path.insert(0, os.path.join(base_dir, "src"))
+            
+            from inference import ExternalValidator
+            val = ExternalValidator(base_dir)
+            val.validate()
+        else:
+            console.print(f"[bold yellow]Objetivo de inferencia '{args.target}' no soportado.[/bold yellow]")
 
     elif args.command in ("evaluate", "report"):
         console.print(f"[bold yellow]Comando '{args.command}' aún no implementado (etapas futuras).[/bold yellow]")

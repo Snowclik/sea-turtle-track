@@ -11,7 +11,7 @@ class LocalTrainingManager:
     def __init__(self, project_root: str):
         self.project_root = project_root
         
-    def train_experiment(self, experiment_id: str):
+    def run_training(self, experiment_id: str, resume: bool = False):
         """Prepara e inicia el runner individual."""
         runner = TrainingRunner(experiment_id, self.project_root)
-        runner.run()
+        runner.run(resume=resume)

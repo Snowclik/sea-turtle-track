@@ -20,8 +20,10 @@ class TrainingRunner:
         self.experiment_id = experiment_id
         self.project_root = project_root
         
-    def run(self):
+    def run(self, resume: bool = False):
         console.print(f"\n[bold cyan]Iniciando LTF (Local Training Framework) para: {self.experiment_id}[/bold cyan]")
+        if resume:
+            console.print("  [bold yellow]⚠ MODO REANUDACIÓN ACTIVADO (Intentará recuperar el último last.pt)[/bold yellow]")
         
         # 1. Cargar Dataset
         console.print("  [dim]>> Resolviendo dataset...[/dim]")
@@ -73,7 +75,7 @@ class TrainingRunner:
         
         console.print("  [dim]>> Iniciando entrenamiento...[/dim]")
         trainer = YoloTrainer(model, cfg, ds_info, train_out)
-        metrics = trainer.train()
+        metrics = trainer.train(resume=resume)
         
         # 7. Guardar métricas
         summary_path = os.path.join(train_out, "training_summary.json")

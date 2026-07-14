@@ -23,7 +23,7 @@ class YoloTrainer:
         self.exporter = ModelExporter(output_dir)
         self.callbacks = TrainingCallbacks()
 
-    def train(self):
+    def train(self, resume: bool = False):
         """Ejecuta el entrenamiento local de YOLO26."""
         self.callbacks.on_train_start()
         
@@ -50,8 +50,17 @@ class YoloTrainer:
             "verbose": False
         }
         
-        # Validar configuración de IOU y Confidencia
-        # YOLO usa esto más en validación e inferencia, pero lo seteamos si el train lo acepta
+        # Manejo de resume
+        if resume:
+            last_pt = os.path.join(self.output_dir, "yolo_run", "weights", "last.pt")
+            if os.path.isfile(last_pt):
+                train_args["resume"] = True
+                # YOLO auto-detects last.pt if we set resume=True and it's the same project/name, 
+                # but to be safe we load it explicitly
+                self.model = type(self.model)(last_pt)
+            else:
+                from rich.console import Console
+                Console().print(f"[red]⚠ No se encontró {last_pt}. Iniciando desde cero.[/red]")
         
         import time
         start_t = time.time()

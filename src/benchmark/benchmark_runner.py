@@ -47,6 +47,16 @@ class BenchmarkRunner:
             combined["config"] = exp_data.get("config", {})
             combined["base_dataset_fingerprint"] = exp_data.get("reproducibility", {}).get("global_seed", "unknown")
             
+            # Cargar training info si existe
+            train_summary = os.path.join(exp_dir, "training_results", "training_summary.json")
+            if os.path.isfile(train_summary):
+                with open(train_summary, "r", encoding="utf-8") as f:
+                    combined["training_metrics"] = json.load(f)
+                    
+            # Cargar validation fingerprint si existe
+            val_fp = os.path.join(exp_dir, "validation", "training_validation_fingerprint.json")
+            combined["has_training_validation"] = os.path.isfile(val_fp)
+            
             record = BenchmarkRegistry.create_record(exp_id, combined)
             self.leaderboard.add_or_update_experiment(exp_id, record)
             count += 1

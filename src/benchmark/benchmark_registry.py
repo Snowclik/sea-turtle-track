@@ -14,12 +14,18 @@ class BenchmarkRegistry:
     def create_record(exp_id: str, summary: dict) -> Dict[str, Any]:
         """Convierte un validation_summary.json + experiment_summary.json a un record del Leaderboard."""
         
+        status = "DATASET_READY"
+        if "training_metrics" in summary:
+            status = "TRAINED"
+            if summary.get("has_training_validation"):
+                status = "VALIDATED"
+                
         metadata = {
             "config_name": summary.get("config_name", "unknown"),
             "dataset_fingerprint": summary.get("base_dataset_fingerprint", "unknown"),
             "pipeline_fingerprint": summary.get("pipeline_fingerprint", "unknown"),
             "date": summary.get("created_at", "unknown"),
-            "status": "DATASET_READY"
+            "status": status
         }
         
         transforms = []
@@ -33,7 +39,7 @@ class BenchmarkRegistry:
             "transforms_applied": transforms
         }
         
-        training_metrics = TrainingMetrics().to_dict()
+        training_metrics = summary.get("training_metrics", TrainingMetrics().to_dict())
         
         return {
             "metadata": metadata,

@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-07-13T19:06:11",
+    "last_updated": "2026-07-13T19:28:47",
     "experiments": {
         "exp_20260713_175742_5A94": {
             "metadata": {
@@ -37,7 +37,7 @@
                 "dataset_fingerprint": 101,
                 "pipeline_fingerprint": "e3a7f44954bd272e2b453b1136d44dbb6536a73b7bef405c305fd50da6d1fd0f",
                 "date": "2026-07-13T18:08:18",
-                "status": "DATASET_READY"
+                "status": "VALIDATED"
             },
             "dataset_stats": {
                 "num_images": 100,
@@ -46,15 +46,15 @@
                 "transforms_applied": []
             },
             "training_metrics": {
-                "mAP_50": null,
-                "mAP_50_95": null,
-                "precision": null,
-                "recall": null,
-                "f1_score": null,
-                "training_time_s": null,
+                "mAP_50": 0.2211,
+                "mAP_50_95": 0.1608,
+                "precision": 0.0035,
+                "recall": 0.9459,
+                "f1_score": 0.007,
+                "training_time_s": 385.2,
                 "inference_time_ms": null,
-                "model_size_mb": null,
-                "params_m": null
+                "model_size_mb": 11.93,
+                "params_m": 3.13
             }
         },
         "exp_20260713_180903_130A": {

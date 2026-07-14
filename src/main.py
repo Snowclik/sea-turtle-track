@@ -41,6 +41,9 @@ def main():
     
     subparsers.add_parser("audit", help="Auditoría completa del ecosistema (Etapa 6.5).")
 
+    val_parser = subparsers.add_parser("validate-training", help="Validación Científica del Entrenamiento (Etapa 7.5).")
+    val_parser.add_argument("exp_id", help="Identificador del experimento a validar (ej: baseline)")
+
     subparsers.add_parser("evaluate", help="Evaluar modelo (Etapa 7).")
     subparsers.add_parser("report",   help="Generar reporte comparativo final (Etapa 8).")
 
@@ -145,6 +148,19 @@ def main():
         
         auditor = EcosystemAuditor(base_dir)
         auditor.audit()
+
+    elif args.command == "validate-training":
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        sys.path.insert(0, os.path.join(base_dir, "src"))
+        
+        from validation import TrainingValidator, TrainingReportGenerator
+        val = TrainingValidator(args.exp_id, base_dir)
+        if val.validate():
+            rep = TrainingReportGenerator(args.exp_id, base_dir)
+            rep.generate()
+            console.print(f"[bold green]Validación científica exitosa para {args.exp_id}[/bold green]")
+        else:
+            console.print(f"[bold red]La validación falló para {args.exp_id}[/bold red]")
 
     elif args.command in ("evaluate", "report"):
         console.print(f"[bold yellow]Comando '{args.command}' aún no implementado (etapas futuras).[/bold yellow]")

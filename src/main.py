@@ -56,6 +56,10 @@ def main():
     inf_parser = subparsers.add_parser("infer", help="Realizar inferencia con el modelo (Etapa 9).")
     inf_parser.add_argument("target", help="Objetivo de inferencia (ej: external)")
 
+    ds_parser = subparsers.add_parser("dataset", help="Dataset Expansion Framework (Etapa 11).")
+    ds_parser.add_argument("action", choices=["diff", "rebuild", "import"], help="Acción a realizar en el dataset")
+    ds_parser.add_argument("--input", help="Directorio de imágenes crudas para importar (solo para import)")
+
     subparsers.add_parser("evaluate", help="Evaluar modelo (Etapa 7).")
     subparsers.add_parser("report",   help="Generar reporte comparativo final (Etapa 8).")
 
@@ -218,6 +222,22 @@ def main():
             val.validate()
         else:
             console.print(f"[bold yellow]Objetivo de inferencia '{args.target}' no soportado.[/bold yellow]")
+
+    elif args.command == "dataset":
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        sys.path.insert(0, os.path.join(base_dir, "src"))
+        from dataset_manager import DatasetManager
+        
+        manager = DatasetManager(base_dir)
+        if args.action == "diff":
+            manager.diff()
+        elif args.action == "rebuild":
+            manager.rebuild()
+        elif args.action == "import":
+            if not args.input:
+                console.print("[bold red]⚠ Debes proveer un --input <directorio> para importar imágenes.[/bold red]")
+            else:
+                manager.import_data(args.input)
 
     elif args.command in ("evaluate", "report"):
         console.print(f"[bold yellow]Comando '{args.command}' aún no implementado (etapas futuras).[/bold yellow]")

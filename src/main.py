@@ -44,6 +44,9 @@ def main():
     val_parser = subparsers.add_parser("validate-training", help="Validación Científica del Entrenamiento (Etapa 7.5).")
     val_parser.add_argument("exp_id", help="Identificador del experimento a validar (ej: baseline)")
 
+    camp_parser = subparsers.add_parser("run-campaign", help="Ejecutar campaña masiva experimental (Etapa 8).")
+    camp_parser.add_argument("campaign_id", help="ID de la campaña (ej: 001)")
+
     subparsers.add_parser("evaluate", help="Evaluar modelo (Etapa 7).")
     subparsers.add_parser("report",   help="Generar reporte comparativo final (Etapa 8).")
 
@@ -161,6 +164,14 @@ def main():
             console.print(f"[bold green]Validación científica exitosa para {args.exp_id}[/bold green]")
         else:
             console.print(f"[bold red]La validación falló para {args.exp_id}[/bold red]")
+
+    elif args.command == "run-campaign":
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        sys.path.insert(0, os.path.join(base_dir, "src"))
+        
+        from benchmark.campaign_runner import CampaignRunner
+        runner = CampaignRunner(args.campaign_id, base_dir)
+        runner.run_all()
 
     elif args.command in ("evaluate", "report"):
         console.print(f"[bold yellow]Comando '{args.command}' aún no implementado (etapas futuras).[/bold yellow]")

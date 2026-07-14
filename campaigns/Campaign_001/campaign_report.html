@@ -1,0 +1,96 @@
+<!DOCTYPE html><html><head><title>Campaign_001 - Scientific Evaluation</title>
+        <style>
+            body { font-family: 'Segoe UI', Arial, sans-serif; margin: 40px; background-color: #f9fafb; color: #111827; }
+            .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 20px; }
+            h1, h2 { color: #1f2937; }
+            .champion { border: 2px solid #fbbf24; background-color: #fffbeb; }
+            table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+            th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+            th { background-color: #f3f4f6; font-weight: 600; }
+            tr:hover { background-color: #f9fafb; }
+            .rank-1 { font-weight: bold; color: #047857; }
+        </style>
+        </head>
+        <body>
+            <div class="card champion">
+                <h1>🏆 Official Model: mixed</h1>
+                <p>El mejor modelo ha sido exportado al directorio <code>OFFICIAL_MODEL/</code> para despliegue en React.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Tabla Comparativa Científica (Ranking Final)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Dataset</th>
+                            <th>mAP50-95</th>
+                            <th>mAP50</th>
+                            <th>F1 Score</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                            <th>Inf. Time (s)</th>
+                            <th>Train Time (s)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr class="rank-1">
+                            <td>#1</td>
+                            <td>mixed</td>
+                            <td>0.1717</td>
+                            <td>0.2573</td>
+                            <td>0.0072</td>
+                            <td>0.0036</td>
+                            <td>0.9818</td>
+                            <td>0.2928</td>
+                            <td>395.68</td>
+                            <td>VALIDATED</td>
+                        </tr>
+            
+                        <tr class="">
+                            <td>#2</td>
+                            <td>baseline</td>
+                            <td>0.1608</td>
+                            <td>0.2211</td>
+                            <td>0.007</td>
+                            <td>0.0035</td>
+                            <td>0.9459</td>
+                            <td>0.3167</td>
+                            <td>458.33</td>
+                            <td>VALIDATED</td>
+                        </tr>
+            
+                        <tr class="">
+                            <td>#3</td>
+                            <td>geometric_only</td>
+                            <td>0.1497</td>
+                            <td>0.2303</td>
+                            <td>0.0072</td>
+                            <td>0.0036</td>
+                            <td>0.9474</td>
+                            <td>0.3078</td>
+                            <td>414.41</td>
+                            <td>VALIDATED</td>
+                        </tr>
+            
+                        <tr class="">
+                            <td>#4</td>
+                            <td>photometric_only</td>
+                            <td>0.0781</td>
+                            <td>0.1146</td>
+                            <td>0.007</td>
+                            <td>0.0035</td>
+                            <td>0.9217</td>
+                            <td>0.3449</td>
+                            <td>402.36</td>
+                            <td>VALIDATED</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        </body>
+        </html>
+        

@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-07-13T19:28:47",
+    "last_updated": "2026-07-13T20:03:40",
     "experiments": {
         "exp_20260713_175742_5A94": {
             "metadata": {
@@ -51,10 +51,10 @@
                 "precision": 0.0035,
                 "recall": 0.9459,
                 "f1_score": 0.007,
-                "training_time_s": 385.2,
+                "training_time_s": 458.33,
                 "inference_time_ms": null,
-                "model_size_mb": 11.93,
-                "params_m": 3.13
+                "model_size_mb": 11.65,
+                "params_m": 3.05
             }
         },
         "exp_20260713_180903_130A": {
@@ -63,7 +63,7 @@
                 "dataset_fingerprint": 202,
                 "pipeline_fingerprint": "ec26477150a100a3fe889066c4ee76c5fd6e61a8b66b6c53a975b4118567263b",
                 "date": "2026-07-13T18:09:03",
-                "status": "DATASET_READY"
+                "status": "VALIDATED"
             },
             "dataset_stats": {
                 "num_images": 100,
@@ -75,15 +75,15 @@
                 ]
             },
             "training_metrics": {
-                "mAP_50": null,
-                "mAP_50_95": null,
-                "precision": null,
-                "recall": null,
-                "f1_score": null,
-                "training_time_s": null,
+                "mAP_50": 0.2303,
+                "mAP_50_95": 0.1497,
+                "precision": 0.0036,
+                "recall": 0.9474,
+                "f1_score": 0.0072,
+                "training_time_s": 414.41,
                 "inference_time_ms": null,
-                "model_size_mb": null,
-                "params_m": null
+                "model_size_mb": 11.65,
+                "params_m": 3.05
             }
         },
         "exp_20260713_181002_5233": {
@@ -92,7 +92,7 @@
                 "dataset_fingerprint": 404,
                 "pipeline_fingerprint": "9bf8425396ef5e840ca63cad85e9f62edcbfc606925e039161954666a07536f0",
                 "date": "2026-07-13T18:10:02",
-                "status": "DATASET_READY"
+                "status": "VALIDATED"
             },
             "dataset_stats": {
                 "num_images": 100,
@@ -105,15 +105,15 @@
                 ]
             },
             "training_metrics": {
-                "mAP_50": null,
-                "mAP_50_95": null,
-                "precision": null,
-                "recall": null,
-                "f1_score": null,
-                "training_time_s": null,
+                "mAP_50": 0.2573,
+                "mAP_50_95": 0.1717,
+                "precision": 0.0036,
+                "recall": 0.9818,
+                "f1_score": 0.0072,
+                "training_time_s": 395.68,
                 "inference_time_ms": null,
-                "model_size_mb": null,
-                "params_m": null
+                "model_size_mb": 11.65,
+                "params_m": 3.05
             }
         },
         "exp_20260713_181112_1FDC": {
@@ -122,7 +122,7 @@
                 "dataset_fingerprint": 303,
                 "pipeline_fingerprint": "29988acd47192b424ff386ee702f4ecc5b8d25ca9dcf40b7e693602706abf426",
                 "date": "2026-07-13T18:11:12",
-                "status": "DATASET_READY"
+                "status": "VALIDATED"
             },
             "dataset_stats": {
                 "num_images": 100,
@@ -133,15 +133,15 @@
                 ]
             },
             "training_metrics": {
-                "mAP_50": null,
-                "mAP_50_95": null,
-                "precision": null,
-                "recall": null,
-                "f1_score": null,
-                "training_time_s": null,
+                "mAP_50": 0.1146,
+                "mAP_50_95": 0.0781,
+                "precision": 0.0035,
+                "recall": 0.9217,
+                "f1_score": 0.007,
+                "training_time_s": 402.36,
                 "inference_time_ms": null,
-                "model_size_mb": null,
-                "params_m": null
+                "model_size_mb": 11.65,
+                "params_m": 3.05
             }
         }
     }

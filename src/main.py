@@ -36,6 +36,11 @@ def main():
     bench_subparsers.add_parser("sync", help="Sincronizar experimentos al Leaderboard")
     bench_subparsers.add_parser("report", help="Generar reportes HTML/PDF/Excel del Leaderboard")
 
+    parser_compare = subparsers.add_parser("compare", help="Ejecuta la herramienta de laboratorio para comparar modelos ONNX.")
+    parser_compare.add_argument("--models", nargs="+", required=True, help="Rutas a los modelos ONNX a comparar")
+    parser_compare.add_argument("--image", required=True, help="Ruta de la imagen a probar")
+    parser_compare.add_argument("--out-dir", required=True, help="Directorio de salida para los reportes")
+
     train_parser = subparsers.add_parser("train", help="Ejecutar entrenamiento local (Etapa 6).")
     train_parser.add_argument("exp_id", help="Identificador del experimento (ej: baseline, geometric_only)")
     train_parser.add_argument("--resume", action="store_true", help="Reanudar el entrenamiento desde la última época truncada")
@@ -182,6 +187,14 @@ def main():
             manager.report()
         else:
             bench_parser.print_help()
+            
+    elif args.command == "compare":
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        sys.path.insert(0, os.path.join(base_dir, "src"))
+        from tools.model_comparator.core.orchestrator import Orchestrator
+        
+        console.print("[bold yellow]Iniciando Universal Model Comparator...[/bold yellow]")
+        Orchestrator.run_comparison(args.models, args.image, args.out_dir)
         
     elif args.command == "audit":
         base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))

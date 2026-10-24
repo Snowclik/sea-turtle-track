@@ -25,7 +25,7 @@
 
 ## 📌 Tabla de Contenidos
 
-1. [Reconocimientos Científicos y Contexto Institucional](#1-reconocimientos-científicos-y-contexto-institucional)
+1. [Reconocimientos Científicos y Participación en Eventos Académicos](#1-reconocimientos-científicos-y-participación-en-eventos-académicos)
 2. [Descripción General, Misión Biológica y Contexto de Campo](#2-descripción-general-misión-biológica-y-contexto-de-campo)
 3. [Especies de Tortugas Marinas y Características de sus Rastros](#3-especies-de-tortugas-marinas-y-características-de-sus-rastros)
 4. [¿Por qué UAVs (Drones)? Justificación de la Perspectiva Aérea](#4-por-qué-uavs-drones-justificación-de-la-perspectiva-aérea)
@@ -47,9 +47,9 @@
 
 ---
 
-## 1. Reconocimientos Científicos y Contexto Institucional
+## 1. Reconocimientos Científicos y Participación en Eventos Académicos
 
-El presente proyecto de investigación aplicada fue desarrollado bajo el marco de la **Universidad Tecnológica de Panamá (UTP)** en colaboración con organizaciones de conservación comunitaria. Los resultados fueron presentados y evaluados en las competencias de investigación formativa de pregrado más exigentes de la República de Panamá:
+El presente proyecto de investigación formativa fue desarrollado por dos estudiantes con asesoría docente de la **Universidad Tecnológica de Panamá (UTP)**, participando en representación de la universidad en los certámenes de iniciación científica formativa de Panamá:
 
 ```
                             ┌───────────────────────────────────────────────┐
@@ -401,7 +401,7 @@ El proyecto integró una encuesta de percepción social a **43 participantes** (
 - **Alineación con los ODS de la ONU:**
   - **ODS 14 (Vida Submarina):** Protección de especies marinas en peligro crítico.
   - **ODS 15 (Ecosistemas Terrestres y Costeros):** Preservación de la franja intermareal de anidación.
-  - **ODS 17 (Alianzas para lograr los Objetivos):** Cooperación sinérgica entre la academia (Universidad Tecnológica de Panamá), organizaciones comunitarias (Fundación Agua y Tierra) y la comunidad local.
+  - **ODS 17 (Alianzas para lograr los Objetivos):** Articulación sinérgica entre la iniciativa de investigación estudiantil bajo la Universidad Tecnológica de Panamá (dos estudiantes y un docente asesor), la labor comunitaria de conservación (Fundación Agua y Tierra) y la comunidad costera local de Mata Oscura.
 
 ---
 
@@ -555,7 +555,6 @@ GitHub detecta automáticamente el archivo [`CITATION.cff`](file:///c:/Users/tav
 @software{seaturtletrack2026,
   author = {{Sea Turtle Track Research Team}},
   title = {Sistema Inteligente Basado en UAV y YOLO26 para la Detección de Rastros de Anidación de Tortugas Marinas},
-  institution = {Universidad Tecnológica de Panamá (UTP)},
   year = {2026},
   publisher = {GitHub},
   version = {3.0},
@@ -565,23 +564,27 @@ GitHub detecta automáticamente el archivo [`CITATION.cff`](file:///c:/Users/tav
 
 #### Formato APA (7.ª edición):
 ```text
-Sea Turtle Track Research Team. (2026). Sistema Inteligente Basado en UAV y YOLO26 para la Detección de Rastros de Anidación de Tortugas Marinas (Versión 3.0) [Software y Modelos de Inferencia]. Universidad Tecnológica de Panamá (UTP). https://github.com/Snowclik/sea-turtle-track
+Sea Turtle Track Research Team. (2026). Sistema Inteligente Basado en UAV y YOLO26 para la Detección de Rastros de Anidación de Tortugas Marinas (Versión 3.0) [Software y Modelos de Inferencia]. GitHub. https://github.com/Snowclik/sea-turtle-track
 ```
 
 #### Formato IEEE:
 ```text
-[1] Sea Turtle Track Research Team, "Sistema Inteligente Basado en UAV y YOLO26 para la Detección de Rastros de Anidación de Tortugas Marinas," Universidad Tecnológica de Panamá (UTP), 2026. [Online]. Disponible: https://github.com/Snowclik/sea-turtle-track.
+[1] Sea Turtle Track Research Team, "Sistema Inteligente Basado en UAV y YOLO26 para la Detección de Rastros de Anidación de Tortugas Marinas," GitHub, 2026. [Online]. Disponible: https://github.com/Snowclik/sea-turtle-track.
 ```
 
 ---
 
 ## 19. Agradecimientos y Licencia
 
-### Reconocimientos Institucionales:
-- **Universidad Tecnológica de Panamá (UTP):** Por el respaldo académico, institucional y la promoción de la investigación formativa mediante la **Jornada de Iniciación Científica (JIC)**.
-- **Secretaría Nacional de Ciencia, Tecnología e Innovación (SENACYT):** Por fomentar la ciencia y la innovación en Panamá a través del financiamiento y organización de la **JIC Nacional** en el marco del **X Congreso IESTEC**.
-- **Fundación Agua y Tierra (Playa Mata Oscura, Mariato, Veraguas):** Por su invaluable dedicación comunitaria a la conservación de las tortugas marinas, la facilitación del acceso al área de estudio y el acompañamiento biológico en campo.
-- **German University of Technology in Oman (GUtech):** Por poner a disposición pública el dataset inicial `turtle-track-detector-2` en Roboflow Universe.
+### Agradecimientos y Menciones Especiales:
+- **A la Universidad Tecnológica de Panamá (UTP):** Por abrir espacios para la investigación formativa estudiantil mediante la organización de la **Jornada de Iniciación Científica (JIC)**.
+- **A la Secretaría Nacional de Ciencia, Tecnología e Innovación (SENACYT):** Por impulsar el ecosistema científico juvenil en Panamá a través del financiamiento y organización de la **JIC Nacional** en el marco del **X Congreso IESTEC**.
+- **A la Fundación Agua y Tierra (Playa Mata Oscura, Mariato, Veraguas):** Por su invaluable dedicación comunitaria a la conservación de las tortugas marinas, la facilitación del acceso al área de estudio y el acompañamiento biológico en campo.
+- **A la German University of Technology in Oman (GUtech):** Por poner a disposición pública el dataset inicial `turtle-track-detector-2` en Roboflow Universe.
+
+> [!IMPORTANT]
+> **Aclaratoria de Titularidad, Participación y Derechos de Autor:**  
+> El presente sistema y trabajo de investigación fue desarrollado por dos estudiantes con la asesoría de un docente de la Universidad Tecnológica de Panamá (UTP) para participar en representación de la universidad en la Jornada de Iniciación Científica (JIC Institucional y JIC Nacional). La autoría intelectual, el código fuente, la plataforma, los modelos entrenados y las metodologías pertenecen exclusivamente a sus autores y creadores (el equipo de investigación del proyecto). La participación estudiantil en representación de la universidad en la JIC no implica coautoría institucional ni transfiere titularidad de derechos patrimoniales sobre el software o los modelos a favor de la universidad.
 
 ### Licencia Legal:
 Este proyecto se rige por los términos establecidos en el archivo [`LICENSE`](LICENSE), que combina el modelo de código abierto para fines educativos y de conservación con una **cláusula obligatoria de citación científica, atribución de autoría y prohibición de plagio**.

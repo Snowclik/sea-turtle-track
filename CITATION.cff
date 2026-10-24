@@ -3,7 +3,6 @@ message: "Si utilizas este software, metodología, pesos de modelos o dataset en
 title: "Sistema Inteligente Basado en UAV y YOLO26 para la Detección de Rastros de Anidación de Tortugas Marinas (Sea Turtle Track)"
 authors:
   - name: "Sea Turtle Track Research Team"
-    affiliation: "Universidad Tecnológica de Panamá (UTP)"
     website: "https://github.com/Snowclik/sea-turtle-track"
 repository-code: "https://github.com/Snowclik/sea-turtle-track"
 url: "https://github.com/Snowclik/sea-turtle-track"
@@ -19,7 +18,6 @@ keywords:
   - "nesting tracks"
   - "conservation"
   - "Mata Oscura"
-  - "Panama"
 license: "CC-BY-NC-SA-4.0"
 version: "3.0.0"
 date-released: "2026-10-24"

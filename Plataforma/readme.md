@@ -252,7 +252,7 @@ Puedes usarlo como **prompt para una IA** o como **guía de arquitectura** para 
 
 ## Licencia
 
-Proyecto académico — Universidad. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+Proyecto de investigación formativa (JIC UTP / JIC Nacional). Consulta el archivo [LICENSE](../LICENSE) en la raíz para más detalles sobre términos de uso y citación.
 
 <div align="left">
 

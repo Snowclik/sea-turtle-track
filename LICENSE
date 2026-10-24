@@ -3,7 +3,7 @@ Y PROTECCIÓN DE PROPIEDAD INTELECTUAL
 ================================================================================
 Proyecto: Sea Turtle Track — Sistema Inteligente Basado en UAV y YOLO26
           para la Detección de Rastros de Anidación de Tortugas Marinas
-Institución: Universidad Tecnológica de Panamá (UTP)
+Titularidad y Autoría: Equipo de Investigación y Desarrollo de Sea Turtle Track
 Repositorio Oficial: https://github.com/Snowclik/sea-turtle-track
 Versión: 3.0 (Turtle IA v3) — 2026
 ================================================================================
@@ -23,9 +23,9 @@ de lucro, sujeto estrictamente a las siguientes condiciones:
    c) Aplicaciones, plataformas, repositorios públicos o herramientas derivadas;
    d) Proyectos de monitoreo ambiental o gubernamental;
 
-   DEBE OBLIGATORIAMENTE CITAR Y DAR CRÉDITO FORMAL al Proyecto y a la institución
-   de origen, utilizando los formatos bibliográficos detallados en el archivo CITATION.cff
-   y en el README.md principal del repositorio oficial:
+   DEBE OBLIGATORIAMENTE CITAR Y DAR CRÉDITO FORMAL al Proyecto (Sea Turtle Track Team),
+   utilizando los formatos bibliográficos detallados en el archivo CITATION.cff y en el
+   README.md principal del repositorio oficial:
    https://github.com/Snowclik/sea-turtle-track
 
 2. CLÁUSULA ANTIPLAGIO Y PROTECCIÓN INTELECTUAL:
@@ -36,27 +36,36 @@ de lucro, sujeto estrictamente a las siguientes condiciones:
    de autor protegidos por la Ley de Derecho de Autor de la República de Panamá,
    el Convenio de Berna para la Protección de las Obras Literarias y Artísticas, y los
    tratados internacionales de la Organización Mundial de la Propiedad Intelectual (OMPI).
-   El equipo de investigación se reserva el derecho de realizar los reclamos formales,
-   denuncias institucionales por plagio académico ante comités de ética y universidades
+   El equipo de desarrollo se reserva el derecho de realizar los reclamos formales,
+   denuncias por plagio académico ante comités de ética, universidades e instituciones
    nacionales o internacionales, y las acciones legales pertinentes.
 
 3. USO NO COMERCIAL (NON-COMMERCIAL RESTRICTION):
    El código fuente, los modelos compilados y los datos generados se liberan con fines
    de investigación y conservación. Queda estrictamente prohibida la venta, comercialización,
    o explotación comercial directa de este software o de sus modelos derivados sin la
-   autorización previa, expresa y por escrito de los titulares de los derechos.
+   autorización previa, expresa y por escrito de los titulares de los derechos de autor.
 
 4. DELIMITACIÓN CLARA DE PROPIEDAD Y RECONOCIMIENTO A TERCEROS:
    a) Propiedad Intelectual del Proyecto: La arquitectura de integración en Tauri/Rust,
       el pipeline de entrenamiento y data augmentation adaptativo (ASFP) para arena oscura,
       la curaduría del dataset en Mata Oscura, la calibración del modelo Turtle IA v3,
-      y los protocolos de validación en CPU son creación y propiedad del Proyecto.
+      y los protocolos de validación en CPU son creación y propiedad exclusiva de sus autores.
    b) Componentes de Terceros: Las tecnologías de base empleadas (YOLO de Ultralytics,
       la plataforma Roboflow, Tauri, Rust, React, Vite, Tailwind CSS y ONNX Runtime)
       pertenecen a sus respectivos creadores y se utilizan respetando sus correspondientes
       licencias de código abierto o términos de servicio.
 
-5. RENUNCIA DE GARANTÍA (DISCLAIMER):
+5. CONTEXTO ACADÉMICO Y TITULARIDAD:
+   Este proyecto fue desarrollado por dos estudiantes con la asesoría de un docente de
+   la Universidad Tecnológica de Panamá (UTP) para participar en representación de la universidad
+   en la Jornada de Iniciación Científica (JIC Institucional y JIC Nacional). La titularidad moral
+   y patrimonial de todos los derechos de autor pertenece exclusivamente a sus autores y creadores
+   (el equipo de investigación del proyecto). La participación de los estudiantes en representación
+   de la universidad en certámenes académicos no implica coautoría institucional ni transfiere ni confiere
+   propiedad patrimonial sobre el código fuente, la plataforma ni los modelos desarrollados a la universidad.
+
+6. RENUNCIA DE GARANTÍA (DISCLAIMER):
    EL SOFTWARE SE PROPORCIONA "TAL CUAL" (AS IS), SIN GARANTÍA DE NINGÚN TIPO,
    EXPRESA O IMPLÍCITA, INCLUYENDO PERO SIN LIMITARSE A LAS GARANTÍAS DE COMERCIABILIDAD,
    IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS AUTORES

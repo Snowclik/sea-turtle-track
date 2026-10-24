@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Tauri / Rust
+src-tauri/target/
+target/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# Models and data
+*.pt
+*.pth
+*.weights
+*.mp4
+*.avi
+datasets/
+# Permitir los modelos ONNX de producción de la aplicación
+!apps/desktop/public/models/*.onnx
+
+
+# OS and IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Copies
+apps copy/
+models copy/

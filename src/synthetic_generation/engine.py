@@ -125,95 +125,167 @@ class SyntheticEngine:
             console.print(f"   [cyan]+[/cyan] {name} [{t.category}] (p={kwargs.get('probability', 1.0)})")
         return SyntheticPipeline(transforms)
 
-    # ── Run ───────────────────────────────────────────────────────────────────
+    # ── API Adaptativa (Stateful) ─────────────────────────────────────────────
 
-    def run(self, num_images: int | None = None) -> Experiment:
+    def setup(self, experiment_id: str | None = None) -> None:
+        """Inicializa el estado del motor para generación incremental."""
+        if hasattr(self, 'exp') and self.exp is not None:
+            return  # Ya inicializado
+            
         eng_cfg  = self.cfg.get("engine",   {})
         pipe_cfg = self.cfg.get("pipeline", {})
         paths    = self.cfg.get("paths",    {})
 
-        global_seed = int(eng_cfg.get("seed",           42))
-        n_images    = int(num_images or eng_cfg.get("num_images", 50))
-        fmt         = str(eng_cfg.get("output_format",  "jpg"))
-        quality     = int(eng_cfg.get("output_quality", 95))
-        max_retry   = int(eng_cfg.get("max_retries",    3))
-        do_preview  = bool(pipe_cfg.get("save_previews",      True))
-        prev_width  = int(pipe_cfg.get("preview_max_width",   1280))
+        self.global_seed = int(eng_cfg.get("seed", 42))
+        self.fmt         = str(eng_cfg.get("output_format",  "jpg"))
+        self.quality     = int(eng_cfg.get("output_quality", 95))
+        self.max_retry   = int(eng_cfg.get("max_retries",    3))
+        self.do_preview  = bool(pipe_cfg.get("save_previews",      True))
+        self.prev_width  = int(pipe_cfg.get("preview_max_width",   1280))
 
         # ── Experimento ───────────────────────────────────────────────────────
         exp_base = self._resolve("experiments")
-        exp      = Experiment(base_experiments_dir=exp_base, config_path=self.config_path)
+        
+        # Le permitimos forzar un ID para resumir, si no el constructor genera uno
+        if experiment_id:
+            # Reconstruimos la misma logica de 'experiment.py' pero forzando el ID
+            self.exp = Experiment(base_experiments_dir=exp_base, config_path=self.config_path)
+            self.exp.experiment_id = experiment_id
+            self.exp.experiment_dir = os.path.join(exp_base, experiment_id)
+            self.exp.images_dir = os.path.join(self.exp.experiment_dir, "images")
+            self.exp.labels_dir = os.path.join(self.exp.experiment_dir, "labels")
+            self.exp.metadata_dir = os.path.join(self.exp.experiment_dir, "metadata")
+            self.exp.previews_dir = os.path.join(self.exp.experiment_dir, "previews")
+            self.exp.stats_dir = os.path.join(self.exp.experiment_dir, "stats")
+            self.exp.summary_path = os.path.join(self.exp.experiment_dir, "experiment_summary.json")
+            # Asegurar que existan
+            os.makedirs(self.exp.experiment_dir, exist_ok=True)
+            for d in [self.exp.images_dir, self.exp.labels_dir, self.exp.metadata_dir, self.exp.previews_dir, self.exp.stats_dir]:
+                os.makedirs(d, exist_ok=True)
+        else:
+            self.exp = Experiment(base_experiments_dir=exp_base, config_path=self.config_path)
 
         console.print(f"\n[bold magenta]ASDGE — Adaptive Synthetic Dataset Generation Engine[/bold magenta]")
-        console.print(f"  Experiment:  [bold]{exp.experiment_id}[/bold]")
+        console.print(f"  Experiment:  [bold]{self.exp.experiment_id}[/bold] (Stateful Mode)")
         console.print(f"  Config:      {self.config_path}")
-        console.print(f"  Seed:        {global_seed}  |  Target: {n_images} imagenes")
-        console.print(f"  Output:      {exp.experiment_dir}")
+        console.print(f"  Seed:        {self.global_seed}")
+        console.print(f"  Output:      {self.exp.experiment_dir}")
 
         # ── Dataset ───────────────────────────────────────────────────────────
-        src_images = self._resolve(paths.get("source_images", "dataset/original"))
-        src_labels = self._resolve(paths.get("source_labels", "dataset/labels"))
-        dataset    = _load_dataset(src_images, src_labels)
-        if not dataset:
+        # Forzar origen del dataset a splits/train para aislamiento riguroso
+        base_dir_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+        src_images = os.path.join(base_dir_path, "dataset", "splits", "train", "images")
+        src_labels = os.path.join(base_dir_path, "dataset", "splits", "train", "labels")
+        
+        # Fallback a original si no existe
+        if not os.path.exists(src_images):
+            src_images = self._resolve(paths.get("source_images", "dataset/original"))
+            src_labels = self._resolve(paths.get("source_labels", "dataset/labels"))
+            
+        self.dataset = _load_dataset(src_images, src_labels)
+        if not self.dataset:
             console.print("[bold red]ERROR: No se encontraron imágenes en el dataset.[/bold red]")
             sys.exit(1)
-        console.print(f"  Dataset:     {len(dataset)} imagenes originales cargadas.")
+        console.print(f"  Dataset:     {len(self.dataset)} imagenes originales (Train) cargadas.")
 
         # ── Pipeline ──────────────────────────────────────────────────────────
-        pipeline = self._build_pipeline()
+        self.pipeline = self._build_pipeline()
 
-        # ── Módulos ───────────────────────────────────────────────────────────
-        seed_mgr = SeedManager(global_seed)
-        exporter = Exporter(
-            output_images_dir   = exp.images_dir,
-            output_labels_dir   = exp.labels_dir,
-            output_metadata_dir = exp.metadata_dir,
-            output_format       = fmt,
-            output_quality      = quality,
+        # ── Módulos de Estado ─────────────────────────────────────────────────
+        self.seed_mgr = SeedManager(self.global_seed)
+        self.exporter = Exporter(
+            output_images_dir   = self.exp.images_dir,
+            output_labels_dir   = self.exp.labels_dir,
+            output_metadata_dir = self.exp.metadata_dir,
+            output_format       = self.fmt,
+            output_quality      = self.quality,
         )
-        previewer = PreviewGenerator(exp.previews_dir, max_width=prev_width) if do_preview else None
-        stats     = RunStatistics(config_path=self.config_path)
-        stats.requested = n_images
+        self.previewer = PreviewGenerator(self.exp.previews_dir, max_width=self.prev_width) if self.do_preview else None
+        self.stats = RunStatistics(config_path=self.config_path)
+        self.gen_count = 0
+        self.histogram_history = []
 
-        # ── Generación ────────────────────────────────────────────────────────
-        console.print(f"\n[bold cyan]>> Generando {n_images} imagenes sinteticas...[/bold cyan]")
+    def _get_phash(self, img_out: np.ndarray) -> np.ndarray:
+        """Calcula mapa estructural (geométrico) de muy baja resolución."""
+        gray = cv2.cvtColor(img_out, cv2.COLOR_BGR2GRAY)
+        resized = cv2.resize(gray, (16, 16), interpolation=cv2.INTER_AREA)
+        norm = cv2.normalize(resized, None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
+        return norm
 
-        gen_count = 0
-        for _ in track(range(n_images), description="  Generando"):
+    def _is_diverse(self, img_out: np.ndarray) -> bool:
+        """
+        Filtro de diversidad ligero.
+        Considera color (HSV) y estructura geométrica/escala (pHash).
+        """
+        if not hasattr(self, 'history_phash'):
+            self.history_phash = []
+            
+        hsv = cv2.cvtColor(img_out, cv2.COLOR_BGR2HSV)
+        hist = cv2.calcHist([hsv], [0, 1], None, [50, 60], [0, 180, 0, 256])
+        cv2.normalize(hist, hist, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX)
+        
+        phash = self._get_phash(img_out)
+        
+        for prev_hist, prev_phash in zip(self.histogram_history, self.history_phash):
+            dist_color = cv2.compareHist(hist, prev_hist, cv2.HISTCMP_BHATTACHARYYA)
+            mse_struct = np.mean((phash - prev_phash) ** 2)
+            
+            # Si tanto el color como la estructura son casi idénticos, rechazar
+            if dist_color < 0.05 and mse_struct < 0.02:
+                return False
+                
+        self.histogram_history.append(hist)
+        self.history_phash.append(phash)
+        return True
+
+    def step(self, batch_size: int) -> Experiment:
+        """Genera un lote adicional de imágenes sintéticas manteniendo el estado anterior."""
+        if not hasattr(self, 'exp') or self.exp is None:
+            self.setup()
+            
+        self.stats.requested += batch_size
+        console.print(f"\n[bold cyan]>> [Step] Generando {batch_size} imagenes sinteticas (Total acumulado esperado: {self.stats.requested})...[/bold cyan]")
+
+        for _ in track(range(batch_size), description="  Generando"):
             generated = False
             attempt   = 0
 
-            while not generated and attempt <= max_retry:
+            while not generated and attempt <= self.max_retry:
                 attempt += 1
                 if attempt > 1:
-                    stats.record_retry()
+                    self.stats.record_retry()
 
                 # Selección de fuente
-                src_idx  = seed_mgr.select_source_index(len(dataset))
-                src      = dataset[src_idx]
+                src_idx  = self.seed_mgr.select_source_index(len(self.dataset))
+                src      = self.dataset[src_idx]
                 img      = cv2.imread(src["image_path"])
                 if img is None:
-                    stats.record_error()
+                    self.stats.record_error()
                     break
 
                 h, w = img.shape[:2]
 
                 # Semilla derivada por imagen
-                img_seed = seed_mgr.next_image_seed()
-                img_rng  = seed_mgr.image_rng(img_seed)
+                img_seed = self.seed_mgr.next_image_seed()
+                img_rng  = self.seed_mgr.image_rng(img_seed)
 
                 # Pipeline
-                img_out, polys_out, records, is_valid, issues = pipeline.run(
+                img_out, polys_out, records, is_valid, issues = self.pipeline.run(
                     img, src["polygons"], img_rng
                 )
 
                 if not is_valid:
-                    stats.record_discarded(reason="; ".join(issues))
+                    self.stats.record_discarded(reason="; ".join(issues))
+                    continue
+                    
+                # Filtro de Diversidad (Rechazar imágenes redundantes)
+                if not self._is_diverse(img_out):
+                    self.stats.record_discarded(reason="redundant_image")
                     continue
 
                 # Nombre del artefacto
-                gen_count += 1
-                filename   = f"synthetic_{gen_count:05d}.{fmt}"
+                self.gen_count += 1
+                filename   = f"synthetic_{self.gen_count:05d}.{self.fmt}"
 
                 # Metadata
                 meta = ImageMetadata(
@@ -227,11 +299,11 @@ class SyntheticEngine:
                 for rec in records:
                     meta.add_transform(rec)
                     if rec.applied:
-                        stats.record_transform(rec.name)
+                        self.stats.record_transform(rec.name)
                 meta.set_validation("valid", [])
 
                 # Exportar
-                exporter.export(
+                self.exporter.export(
                     image     = img_out,
                     polygons  = polys_out,
                     class_ids = src["class_ids"],
@@ -240,38 +312,52 @@ class SyntheticEngine:
                 )
 
                 # Preview
-                if previewer:
-                    previewer.generate(
+                if self.previewer:
+                    self.previewer.generate(
                         original_image     = img,
                         synthetic_image    = img_out,
                         original_polygons  = src["polygons"],
                         synthetic_polygons = polys_out,
                         transforms_applied = [r.to_dict() for r in records],
-                        output_filename    = f"preview_{gen_count:05d}.jpg",
+                        output_filename    = f"preview_{self.gen_count:05d}.jpg",
                     )
 
-                stats.record_generated()
+                self.stats.record_generated()
                 generated = True
 
-            if not generated and attempt > max_retry:
-                stats.record_discarded(reason="max_retries exceeded")
+            if not generated and attempt > self.max_retry:
+                self.stats.record_discarded(reason="max_retries exceeded")
+                
+        # Siempre guardamos el estado tras cada step
+        self._save_state()
+        return self.exp
 
-        # ── Finalización ──────────────────────────────────────────────────────
-        stats.finish()
 
-        # Guardar stats
-        stats_path = os.path.join(exp.stats_dir, "run_stats.json")
-        stats.save(stats_path)
-
-        # Guardar experiment_summary.json
-        exp.save_summary(
-            stats_dict  = stats.to_dict(),
-            seed_dict   = seed_mgr.to_dict(),
+    def _save_state(self):
+        """Guarda los archivos de estadísticas y resumen temporalmente."""
+        self.stats.finish()
+        
+        stats_path = os.path.join(self.exp.stats_dir, "run_stats.json")
+        self.stats.save(stats_path)
+        self.exp.save_summary(
+            stats_dict  = self.stats.to_dict(),
+            seed_dict   = self.seed_mgr.to_dict(),
             config_dict = self.cfg,
         )
 
-        self._print_summary(exp, stats)
-        return exp
+
+    # ── Retrocompatibilidad (One-Shot Run) ────────────────────────────────────
+    
+    def run(self, num_images: int | None = None) -> Experiment:
+        """Modo clásico de ejecución One-Shot."""
+        eng_cfg  = self.cfg.get("engine", {})
+        n_images = int(num_images or eng_cfg.get("num_images", 50))
+        
+        self.setup()
+        self.step(n_images)
+        
+        self._print_summary(self.exp, self.stats)
+        return self.exp
 
     # ── Resumen consola ───────────────────────────────────────────────────────
 

@@ -5,13 +5,16 @@ Re-exporta todo lo necesario para que el resto del motor
 solo necesite: from transforms import HorizontalFlip, ...
 """
 from .base import Transform, Polygon
-from .geometric   import HorizontalFlip, RandomRotate
-from .photometric import BrightnessContrast
+from .geometric   import HorizontalFlip, RandomRotate, RandomScale, RandomPerspective
+from .photometric import BrightnessContrast, MotionBlur
 
 __all__ = [
     "Transform",
     "Polygon",
     "HorizontalFlip",
     "RandomRotate",
+    "RandomScale",
+    "RandomPerspective",
     "BrightnessContrast",
+    "MotionBlur",
 ]

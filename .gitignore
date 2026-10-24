@@ -1,3 +1,7 @@
+# ==============================================================================
+# Git Ignore — Sea Turtle Track Project
+# ==============================================================================
+
 # Entornos virtuales
 venv/
 env/
@@ -16,23 +20,68 @@ __pycache__/
 logs/
 *.log
 
+# Variables de entorno y secretos sensibles
+.env
+.env.*
+*.env
+*.env.*
+*.pem
+*.key
+*.cert
+*.secret
+
 # Entorno de usuario y SO
 .DS_Store
 Thumbs.db
 .vscode/
+.idea/
 
-# Datos e imágenes
+# Node / Frontend (Tauri Desktop App)
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+dist-ssr/
+**/dist-ssr/
+*.local
+
+# Tauri / Rust
+target/
+**/target/
+src-tauri/target/
+**/src-tauri/target/
+
+# Datos pesados de entrenamiento local (imágenes sin comprimir)
 dataset/original/
 dataset/labels/
 dataset/synthetic/
 dataset/validation/
 dataset/test/
 dataset/preview/
+dataset/splits/
+datasets/
 
-# Experimentos
+# Experimentos y modelos de benchmark en raíz
+/models/
 experiments/
-models/
+yolo11n.pt
+yolo11n.onnx
+yolov5nu.pt
+yolov5nu.onnx
+yolov8n.pt
+yolov8n.onnx
+yolo26n-seg.pt
 
-# Reportes (excepto plantillas)
+# Archivos multimedia de prueba pesados
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Reportes generados (excepto .gitkeep)
 reports/
 !reports/.gitkeep
+
+# Copias temporales
+* copy/
+* copy*/

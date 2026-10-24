@@ -1,0 +1,33 @@
+{
+  "model_name": "yolo26n-seg",
+  "dataset": "asgf-playa-mata-oscura",
+  "version": "1.0.0",
+  "input_size": 640,
+  "num_classes": 1,
+  "class_names": [
+    "Nido"
+  ],
+  "output_shape": [
+    1,
+    300,
+    38
+  ],
+  "output_format": "xyxy_pixel_seg",
+  "value_order": [
+    "x1",
+    "y1",
+    "x2",
+    "y2",
+    "confidence",
+    "class_id",
+    "mask_coeffs_0_to_31"
+  ],
+  "nms_required": false,
+  "max_detections": 300,
+  "trained_with": {
+    "gpu": "CPU",
+    "vram": "0.0 GB",
+    "batch": 24,
+    "imgsz": 640
+  }
+}

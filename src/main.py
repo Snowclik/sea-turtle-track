@@ -57,6 +57,10 @@ def main():
 
     camp_parser = subparsers.add_parser("run-campaign", help="Ejecutar campaña masiva experimental (Etapa 8).")
     camp_parser.add_argument("campaign_id", help="ID de la campaña (ej: 001)")
+    
+    adapt_parser = subparsers.add_parser("adaptive", help="Ejecutar ASGF Adaptive Growth (Generación adaptativa + Fine-Tuning).")
+    adapt_parser.add_argument("--config", default="configs/experiments/exp_d_synergy.yaml",
+                              help="Ruta al archivo de configuración YAML.")
 
     inf_parser = subparsers.add_parser("infer", help="Realizar inferencia con el modelo (Etapa 9).")
     inf_parser.add_argument("target", help="Objetivo de inferencia (ej: external)")
@@ -144,8 +148,8 @@ def main():
         base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         sys.path.insert(0, os.path.join(base_dir, "src"))
         
-        from training.trainer_manager import TrainerManager
-        manager = TrainerManager(base_dir)
+        from training.trainer_manager import LocalTrainingManager
+        manager = LocalTrainingManager(base_dir)
         try:
             manager.run_training(args.exp_id, resume=getattr(args, 'resume', False))
             console.print(f"[bold green]Entrenamiento completado para {args.exp_id}[/bold green]")
@@ -224,6 +228,14 @@ def main():
         from benchmark.campaign_runner import CampaignRunner
         runner = CampaignRunner(args.campaign_id, base_dir)
         runner.run_all()
+        
+    elif args.command == "adaptive":
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        sys.path.insert(0, os.path.join(base_dir, "src"))
+        from experiments.growth_controller import GrowthController
+        
+        controller = GrowthController(args.config)
+        controller.run()
         
     elif args.command == "infer":
         if args.target == "external":

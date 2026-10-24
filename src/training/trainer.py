@@ -47,8 +47,33 @@ class YoloTrainer:
             "project": self.output_dir,
             "name": "yolo_run",
             "exist_ok": True,
-            "verbose": False
+            "verbose": False,
+            "cache": True,        # Opt 2: Caché en RAM
+            "plots": False        # Opt 4: Sin gráficas por época
         }
+        
+        # Inyectar configuraciones dinámicas de Data Augmentation de YOLO (Online)
+        yolo_aug = self.cfg.get("yolo_augmentations", {})
+        
+        # FORZAR DESACTIVACIÓN DE AUGMENTATIONS INTERNAS (Prioridad 1)
+        yolo_aug.update({
+            "mosaic": 0.0,
+            "mixup": 0.0,
+            "copy_paste": 0.0,
+            "hsv_h": 0.0,
+            "hsv_s": 0.0,
+            "hsv_v": 0.0,
+            "degrees": 0.0,
+            "translate": 0.0,
+            "scale": 0.0,
+            "shear": 0.0,
+            "perspective": 0.0,
+            "flipud": 0.0,
+            "fliplr": 0.0,
+            "erasing": 0.0
+        })
+        
+        train_args.update(yolo_aug)
         
         # Manejo de resume
         if resume:

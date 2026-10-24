@@ -4,11 +4,11 @@ model:
   architecture: yolo26n-seg
 
 training:
-  epochs: 300
+  epochs: 100
   imgsz: 640
-  batch: 16
+  batch: 8
   optimizer: auto
-  patience: 50
+  patience: 30
   seed: 42
   workers: 4
 

@@ -14,7 +14,7 @@ El motor (engine.py) NO necesita modificarse.
 from __future__ import annotations
 from typing import Dict, List, Type, Any
 
-from transforms import Transform, HorizontalFlip, RandomRotate, BrightnessContrast
+from transforms import Transform, HorizontalFlip, RandomRotate, RandomScale, RandomPerspective, BrightnessContrast, MotionBlur
 
 
 class TransformRegistry:
@@ -29,9 +29,12 @@ class TransformRegistry:
         # ── Geométricas ───────────────────────────────────────────────────────
         "HorizontalFlip":     HorizontalFlip,
         "RandomRotate":       RandomRotate,
+        "RandomScale":        RandomScale,
+        "RandomPerspective":  RandomPerspective,
 
         # ── Fotométricas ──────────────────────────────────────────────────────
         "BrightnessContrast": BrightnessContrast,
+        "MotionBlur":         MotionBlur,
 
         # ── Añadir nuevas transformaciones aquí ───────────────────────────────
         # "VerticalFlip":     VerticalFlip,

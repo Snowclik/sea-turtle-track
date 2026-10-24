@@ -7,7 +7,7 @@
 **Monitoreo aéreo costero autónomo mediante Vehículos Aéreos No Tripulados (UAV) y Visión por Computador de Ultra Baja Latencia en CPU**
 
 [![JIC UTP 2026](https://img.shields.io/badge/🥉_3.er_Lugar-JIC_UTP_2026_(Ingenier%C3%ADa)-FFD700?style=for-the-badge)](https://utp.ac.pa)
-[![JIC Nacional IESTEC 2026](https://img.shields.io/badge/🏆_Finalista_Nacional-JIC_Nacional_2026_(X_Congreso_IESTEC)-005CED?style=for-the-badge)](https://utp.ac.pa)
+[![JIC Nacional IESTEC 2026](https://img.shields.io/badge/🏆_Finalista_Nacional-JIC_Nacional_2026-005CED?style=for-the-badge)](https://utp.ac.pa)
 
 [![Tauri v2](https://img.shields.io/badge/Tauri-v2.0-24C8DB?style=flat-square&logo=tauri&logoColor=white)](https://tauri.app)
 [![Rust](https://img.shields.io/badge/Backend-Rust_1.79+-DEA584?style=flat-square&logo=rust&logoColor=white)](https://www.rust-lang.org)
@@ -17,7 +17,7 @@
 [![YOLO26-n](https://img.shields.io/badge/Arquitectura-YOLO26--n_(Ultra_Light)-FF4B4B?style=flat-square&logo=yolo&logoColor=white)](https://github.com/ultralytics)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org)
 [![Dataset Ganador](https://img.shields.io/badge/Roboflow_Universe-Dataset_Ganador_Oficial-9B51E0?style=flat-square&logo=roboflow&logoColor=white)](https://universe.roboflow.com/snowcliks-workspace/turtle-track-detector-2-205gp)
-[![Licencia](https://img.shields.io/badge/Licencia-Acad%C3%A9mica-green?style=flat-square)](#licencia)
+[![Licencia](https://img.shields.io/badge/Licencia-Acad%C3%A9mica_%2B_Atribuci%C3%B3n-green?style=flat-square)](LICENSE)
 
 </div>
 
@@ -42,13 +42,14 @@
 15. [Requisitos de Hardware y Software](#15-requisitos-de-hardware-y-software)
 16. [Guía Paso a Paso para Reproducir el Proyecto](#16-guía-paso-a-paso-para-reproducir-el-proyecto)
 17. [Estructura del Repositorio](#17-estructura-del-repositorio)
-18. [Agradecimientos y Licencia](#18-agradecimientos-y-licencia)
+18. [Propiedad Intelectual, Delimitación de Autoría y Citación Obligatoria](#18-propiedad-intelectual-delimitación-de-autoría-y-citación-obligatoria)
+19. [Agradecimientos y Licencia](#19-agradecimientos-y-licencia)
 
 ---
 
 ## 1. Reconocimientos Científicos y Contexto Institucional
 
-El presente proyecto de investigación aplicada fue desarrollado bajo el marco de la **Universidad Tecnológica de Panamá (UTP)** en colaboración con organizaciones de conservación comunitaria. Los resultados fueron presentados y evaluados en las competencias de investigación científica formativa más exigentes de la República de Panamá:
+El presente proyecto de investigación aplicada fue desarrollado bajo el marco de la **Universidad Tecnológica de Panamá (UTP)** en colaboración con organizaciones de conservación comunitaria. Los resultados fueron presentados y evaluados en las competencias de investigación formativa de pregrado más exigentes de la República de Panamá:
 
 ```
                             ┌───────────────────────────────────────────────┐
@@ -59,18 +60,18 @@ El presente proyecto de investigación aplicada fue desarrollado bajo el marco d
                        ▼                                                       ▼
         ┌─────────────────────────────┐                         ┌─────────────────────────────┐
         │        JIC UTP 2026         │                         │      JIC NACIONAL 2026      │
-        │   Fase Institucional UTP    │                         │     X Congreso IESTEC       │
+        │   Fase Institucional UTP    │                         │    Fase Nacional SENACYT    │
         ├─────────────────────────────┤                         ├─────────────────────────────┤
         │ • 🥉 3.er Lugar             │                         │ • 🏆 FINALISTA NACIONAL     │
         │ • Categoría: Ingeniería     │                         │ • Avalado por SENACYT / UTP │
-        │ • Evaluación entre todas    │                         │ • Publicado en memorias del │
-        │   las facultades de la UTP  │                         │   X Congreso IESTEC 2026    │
+        │ • Evaluación entre todas    │                         │ • Certamen científico       │
+        │   las facultades de la UTP  │                         │   nacional de Panamá        │
         └─────────────────────────────┘                         └─────────────────────────────┘
 ```
 
-### Distinción Oficial: JIC UTP vs JIC Nacional (X Congreso IESTEC)
+### Distinción Oficial: JIC UTP vs JIC Nacional (SENACYT / UTP)
 - **JIC UTP 2026 (Fase Institucional):** Certamen de investigación científica de pregrado que congrega a todas las facultades de la **Universidad Tecnológica de Panamá**. El proyecto obtuvo el **3.er Lugar Institucional en la Categoría de Ingeniería**, destacándose por su rigor experimental, solidez estadística y viabilidad tecnológica en campo.
-- **JIC Nacional 2026 (Fase Nacional / X Congreso IESTEC):** Máxima instancia de investigación formativa universitaria en Panamá, coorganizada y financiada por la **Secretaría Nacional de Ciencia, Tecnología e Innovación (SENACYT)**. En este certamen compiten exclusivamente los mejores proyectos clasificados de todas las universidades públicas y particulares del país. La fase final se celebra en el marco del **IESTEC** (*Congreso Internacional de Ingeniería, Ciencias y Tecnología*). El proyecto fue galardonado con la condición de **Finalista Nacional en la Categoría de Ingeniería y Tecnología**, con su artículo formal incorporado en las memorias científicas del congreso.
+- **JIC Nacional 2026 (Fase Nacional):** Máxima instancia de investigación formativa universitaria en Panamá, coorganizada y financiada por la **Secretaría Nacional de Ciencia, Tecnología e Innovación (SENACYT)** y el Consejo de Rectores. En este certamen compiten exclusivamente los mejores proyectos clasificados de todas las universidades públicas y particulares del país. La fase final se celebra en el marco del **IESTEC** (*Congreso Internacional de Ingeniería, Ciencias y Tecnología*). El proyecto fue galardonado con la distinción oficial de **Finalista Nacional en la Categoría de Ingeniería y Tecnología**.
 
 ---
 
@@ -500,6 +501,8 @@ sea-turtle-track/
 ├── figure2_onnx_vs_pytorch_speedup.png   # Gráfica de aceleración (Speedup X)
 ├── figure3_tukey_hsd_intervals.png       # Intervalos de confianza al 95% (Forest Plot)
 ├── figure5_project_onnx_models_comparison.png # Boxplot y FPS de los modelos del proyecto
+├── CITATION.cff                          # Metadatos para el botón 'Cite this repository' en GitHub
+├── LICENSE                               # Términos legales de código abierto con citación obligatoria
 ├── requirements.txt                      # Dependencias de Python para reproducir benchmarks
 ├── .gitignore                            # Protección estricta contra fugas de datos y binarios
 └── README.md                             # Documentación principal del repositorio
@@ -507,16 +510,81 @@ sea-turtle-track/
 
 ---
 
-## 18. Agradecimientos y Licencia
+## 18. Propiedad Intelectual, Delimitación de Autoría y Citación Obligatoria
+
+Para salvaguardar la autoría científica y definir de manera inequívoca qué elementos son de creación propia del proyecto frente a las herramientas y bibliotecas de terceros, se establece la siguiente delimitación formal:
+
+### 18.1 Delimitación de Autoría: ¿Qué creamos nosotros vs. Herramientas de Terceros?
+
+```
+┌─────────────────────────────────────────────────────────────┬─────────────────────────────────────────────────────────────┐
+│           COMPONENTES DE TERCEROS UTILIZADOS                │        PROPIEDAD INTELECTUAL Y CREACIÓN PROPIA DEL PROYECTO │
+├─────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
+│ • Arquitectura base de YOLO (Ultralytics y autores).        │ • El Sistema Integral de Monitoreo Aéreo para Drones.       │
+│ • Plataforma y almacenamiento de Roboflow Inc.              │ • La Plataforma de Escritorio Tauri (Rust + React + Wasm).  │
+│ • Motor de compilación Tauri (Fundación Tauri).             │ • El Pipeline Adaptativo de Aumento Sintético (ASFP).       │
+│ • Librerías base (React, Vite, Tailwind, ONNX Runtime).     │ • El Dataset Curado de Mata Oscura (turtle-track-205gp).    │
+│ • Dataset inicial internacional (GUtech en Roboflow).       │ • La Calibración y Pesos Oficiales de Turtle IA v3.         │
+│                                                             │ • El Protocolo de Validación en CPU (1,100 inferencias).    │
+└─────────────────────────────────────────────────────────────┴─────────────────────────────────────────────────────────────┘
+```
+
+### 18.2 Términos de Licenciamiento y Código Abierto:
+1. **Uso Libre para Aprendizaje y Pruebas Personales:**  
+   Cualquier desarrollador, estudiante o investigador es libre de clonar, compilar y ejecutar este software en su computadora personal con propósitos didácticos o de inspección técnica.
+2. **Citación y Atribución Obligatoria en Investigaciones o Productos:**  
+   Si utilizas este software, sus modelos entrenados (`model_v3.onnx`), su metodología de data augmentation adaptativo, o sus datos en:
+   - Artículos científicos, pósteres, congresos o conferencias académicas;
+   - Tesis de licenciatura, maestría o doctorado;
+   - Informes técnicos ambientales o proyectos institucionales;
+   - Desarrollos de software o productos públicos derivados;  
+   **ES UN REQUISITO OBLIGATORIO Y ESTRICTO CITAR ESTE REPOSITORIO Y EL PROYECTO** como fuente bibliográfica original.
+3. **Cláusula Anti-Plagio Académico:**  
+   Replicar o presentar la metodología, los experimentos, los datos o la arquitectura de este sistema como creación propia sin citar la fuente constituye una falta grave contra la ética científica y una infracción directa de los derechos de autor protegidos por la Ley de Derecho de Autor de Panamá, el Convenio de Berna y la OMPI. El equipo de investigación ejercerá las acciones institucionales pertinentes ante universidades, conferencias o comités de ética académica en caso de detectar apropiaciones no atribuidas.
+4. **Restricción Comercial:**  
+   El uso o comercialización lucrativa directa del sistema sin autorización escrita previa está estrictamente prohibido.
+
+---
+
+### 18.3 Cómo Citar este Trabajo (Formatos Oficiales)
+
+GitHub detecta automáticamente el archivo [`CITATION.cff`](file:///c:/Users/tavog/Documents/Codigo/Universidad/Tortugasv2/CITATION.cff) en la raíz del repositorio, habilitando el botón **"Cite this repository"** en la barra lateral derecha. Puedes copiar la cita en los siguientes formatos:
+
+#### Formato BibTeX:
+```bibtex
+@software{seaturtletrack2026,
+  author = {{Sea Turtle Track Research Team}},
+  title = {Sistema Inteligente Basado en UAV y YOLO26 para la Detección de Rastros de Anidación de Tortugas Marinas},
+  institution = {Universidad Tecnológica de Panamá (UTP)},
+  year = {2026},
+  publisher = {GitHub},
+  version = {3.0},
+  url = {https://github.com/Snowclik/sea-turtle-track}
+}
+```
+
+#### Formato APA (7.ª edición):
+```text
+Sea Turtle Track Research Team. (2026). Sistema Inteligente Basado en UAV y YOLO26 para la Detección de Rastros de Anidación de Tortugas Marinas (Versión 3.0) [Software y Modelos de Inferencia]. Universidad Tecnológica de Panamá (UTP). https://github.com/Snowclik/sea-turtle-track
+```
+
+#### Formato IEEE:
+```text
+[1] Sea Turtle Track Research Team, "Sistema Inteligente Basado en UAV y YOLO26 para la Detección de Rastros de Anidación de Tortugas Marinas," Universidad Tecnológica de Panamá (UTP), 2026. [Online]. Disponible: https://github.com/Snowclik/sea-turtle-track.
+```
+
+---
+
+## 19. Agradecimientos y Licencia
 
 ### Reconocimientos Institucionales:
 - **Universidad Tecnológica de Panamá (UTP):** Por el respaldo académico, institucional y la promoción de la investigación formativa mediante la **Jornada de Iniciación Científica (JIC)**.
-- **Secretaría Nacional de Ciencia, Tecnología e Innovación (SENACYT):** Por fomentar la ciencia y la innovación en Panamá a través del financiamiento de la **JIC Nacional** y el **X Congreso IESTEC**.
+- **Secretaría Nacional de Ciencia, Tecnología e Innovación (SENACYT):** Por fomentar la ciencia y la innovación en Panamá a través del financiamiento y organización de la **JIC Nacional** en el marco del **X Congreso IESTEC**.
 - **Fundación Agua y Tierra (Playa Mata Oscura, Mariato, Veraguas):** Por su invaluable dedicación comunitaria a la conservación de las tortugas marinas, la facilitación del acceso al área de estudio y el acompañamiento biológico en campo.
 - **German University of Technology in Oman (GUtech):** Por poner a disposición pública el dataset inicial `turtle-track-detector-2` en Roboflow Universe.
 
-### Licencia:
-Este proyecto se distribuye con fines académicos, de conservación ambiental e investigación científica. Consulta el archivo de licencia para detalles adicionales sobre derechos de uso y atribución.
+### Licencia Legal:
+Este proyecto se rige por los términos establecidos en el archivo [`LICENSE`](LICENSE), que combina el modelo de código abierto para fines educativos y de conservación con una **cláusula obligatoria de citación científica, atribución de autoría y prohibición de plagio**.
 
 <div align="center">
 
@@ -525,3 +593,4 @@ Este proyecto se distribuye con fines académicos, de conservación ambiental e 
 **Sea Turtle Track** — *Ciencia, Tecnología e Innovación al Servicio de la Conservación de los Océanos.*
 
 </div>
+

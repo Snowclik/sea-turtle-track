@@ -1,0 +1,64 @@
+LICENCIA DE CÓDIGO ABIERTO ACADÉMICO CON ATRIBUCIÓN OBLIGATORIA
+Y PROTECCIÓN DE PROPIEDAD INTELECTUAL
+================================================================================
+Proyecto: Sea Turtle Track — Sistema Inteligente Basado en UAV y YOLO26
+          para la Detección de Rastros de Anidación de Tortugas Marinas
+Institución: Universidad Tecnológica de Panamá (UTP)
+Repositorio Oficial: https://github.com/Snowclik/sea-turtle-track
+Versión: 3.0 (Turtle IA v3) — 2026
+================================================================================
+
+Por la presente se concede permiso, de forma libre y gratuita, a cualquier persona
+que obtenga una copia de este software, modelos, metodologías y documentación asociada
+(en adelante, el "Proyecto"), para utilizar, estudiar, ejecutar y reproducir el Proyecto
+con fines educativos, de investigación científica y de conservación ambiental sin fines
+de lucro, sujeto estrictamente a las siguientes condiciones:
+
+1. ATRIBUCIÓN Y CITACIÓN CIENTÍFICA OBLIGATORIA:
+   Cualquier uso, reproducción total o parcial, adaptación, modificación o integración
+   de este software, de su pipeline metodológico (ASFP), de los modelos entrenados
+   (model_v3.onnx u otros), de los scripts de benchmark o de los datos de calibración en:
+   a) Artículos científicos, conferencias, congresos o ponencias académicas;
+   b) Tesis de grado, postgrado o informes de investigación universitaria;
+   c) Aplicaciones, plataformas, repositorios públicos o herramientas derivadas;
+   d) Proyectos de monitoreo ambiental o gubernamental;
+
+   DEBE OBLIGATORIAMENTE CITAR Y DAR CRÉDITO FORMAL al Proyecto y a la institución
+   de origen, utilizando los formatos bibliográficos detallados en el archivo CITATION.cff
+   y en el README.md principal del repositorio oficial:
+   https://github.com/Snowclik/sea-turtle-track
+
+2. CLÁUSULA ANTIPLAGIO Y PROTECCIÓN INTELECTUAL:
+   La apropiación indebida, copia no atribuida, reempaquetado o presentación de la
+   metodología, del pipeline de datos, de la arquitectura de la aplicación o de los
+   resultados estadísticos como si fuesen de autoría propia, sin la correspondiente
+   referencia bibliográfica, constituye una violación flagrante de los derechos morales
+   de autor protegidos por la Ley de Derecho de Autor de la República de Panamá,
+   el Convenio de Berna para la Protección de las Obras Literarias y Artísticas, y los
+   tratados internacionales de la Organización Mundial de la Propiedad Intelectual (OMPI).
+   El equipo de investigación se reserva el derecho de realizar los reclamos formales,
+   denuncias institucionales por plagio académico ante comités de ética y universidades
+   nacionales o internacionales, y las acciones legales pertinentes.
+
+3. USO NO COMERCIAL (NON-COMMERCIAL RESTRICTION):
+   El código fuente, los modelos compilados y los datos generados se liberan con fines
+   de investigación y conservación. Queda estrictamente prohibida la venta, comercialización,
+   o explotación comercial directa de este software o de sus modelos derivados sin la
+   autorización previa, expresa y por escrito de los titulares de los derechos.
+
+4. DELIMITACIÓN CLARA DE PROPIEDAD Y RECONOCIMIENTO A TERCEROS:
+   a) Propiedad Intelectual del Proyecto: La arquitectura de integración en Tauri/Rust,
+      el pipeline de entrenamiento y data augmentation adaptativo (ASFP) para arena oscura,
+      la curaduría del dataset en Mata Oscura, la calibración del modelo Turtle IA v3,
+      y los protocolos de validación en CPU son creación y propiedad del Proyecto.
+   b) Componentes de Terceros: Las tecnologías de base empleadas (YOLO de Ultralytics,
+      la plataforma Roboflow, Tauri, Rust, React, Vite, Tailwind CSS y ONNX Runtime)
+      pertenecen a sus respectivos creadores y se utilizan respetando sus correspondientes
+      licencias de código abierto o términos de servicio.
+
+5. RENUNCIA DE GARANTÍA (DISCLAIMER):
+   EL SOFTWARE SE PROPORCIONA "TAL CUAL" (AS IS), SIN GARANTÍA DE NINGÚN TIPO,
+   EXPRESA O IMPLÍCITA, INCLUYENDO PERO SIN LIMITARSE A LAS GARANTÍAS DE COMERCIABILIDAD,
+   IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS AUTORES
+   O TITULARES DEL DERECHO DE AUTOR SERÁN RESPONSABLES DE NINGÚN RECLAMO, DAÑO U OTRA
+   RESPONSABILIDAD DERIVADA DEL USO O MAL USO DE ESTE SOFTWARE.

@@ -30,6 +30,15 @@ logs/
 *.cert
 *.secret
 
+# Artículos y manuscritos confidenciales (no subibles)
+*Articulo*
+*Artículo*
+1900_Articulo*.pdf
+*.pdf
+!figure5_project_onnx_models_comparison.pdf
+!informe_validacion_hipotesis_cpu.pdf
+
+
 # Entorno de usuario y SO
 .DS_Store
 Thumbs.db

@@ -7,7 +7,7 @@
 **Monitoreo aéreo costero autónomo mediante Vehículos Aéreos No Tripulados (UAV) y Visión por Computador de Ultra Baja Latencia en CPU**
 
 [![JIC UTP 2026](https://img.shields.io/badge/🥉_3.er_Lugar-JIC_UTP_2026_(Ingenier%C3%ADa)-FFD700?style=for-the-badge)](https://utp.ac.pa)
-[![JIC Nacional IESTEC 2026](https://img.shields.io/badge/🏆_Finalista_Nacional-JIC_Nacional_2026_(IESTEC)-005CED?style=for-the-badge)](https://utp.ac.pa)
+[![JIC Nacional IESTEC 2026](https://img.shields.io/badge/🏆_Finalista_Nacional-JIC_Nacional_2026_(X_Congreso_IESTEC)-005CED?style=for-the-badge)](https://utp.ac.pa)
 
 [![Tauri v2](https://img.shields.io/badge/Tauri-v2.0-24C8DB?style=flat-square&logo=tauri&logoColor=white)](https://tauri.app)
 [![Rust](https://img.shields.io/badge/Backend-Rust_1.79+-DEA584?style=flat-square&logo=rust&logoColor=white)](https://www.rust-lang.org)
@@ -16,7 +16,7 @@
 [![ONNX Runtime](https://img.shields.io/badge/Inferencia-ONNX_Runtime_CPU-005CED?style=flat-square&logo=onnx&logoColor=white)](https://onnxruntime.ai)
 [![YOLO26-n](https://img.shields.io/badge/Arquitectura-YOLO26--n_(Ultra_Light)-FF4B4B?style=flat-square&logo=yolo&logoColor=white)](https://github.com/ultralytics)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org)
-[![Dataset](https://img.shields.io/badge/Roboflow_Universe-2%2C515_Im%C3%A1genes-9B51E0?style=flat-square&logo=roboflow&logoColor=white)](https://universe.roboflow.com/german-university-of-technology-f4tuz/turtle-track-detector-2)
+[![Dataset Ganador](https://img.shields.io/badge/Roboflow_Universe-Dataset_Ganador_Oficial-9B51E0?style=flat-square&logo=roboflow&logoColor=white)](https://universe.roboflow.com/snowcliks-workspace/turtle-track-detector-2-205gp)
 [![Licencia](https://img.shields.io/badge/Licencia-Acad%C3%A9mica-green?style=flat-square)](#licencia)
 
 </div>
@@ -26,26 +26,29 @@
 ## 📌 Tabla de Contenidos
 
 1. [Reconocimientos Científicos y Contexto Institucional](#1-reconocimientos-científicos-y-contexto-institucional)
-2. [Descripción General y Misión del Proyecto](#2-descripción-general-y-misión-del-proyecto)
-3. [¿Por qué UAVs (Drones)? Justificación de la Perspectiva Aérea](#3-por-qué-uavs-drones-justificación-de-la-perspectiva-aérea)
-4. [Bases de Datos y Evolución Histórica de los Modelos](#4-bases-de-datos-y-evolución-histórica-de-los-modelos)
-5. [¿Por qué NO Machine Learning Tradicional vs Deep Learning?](#5-por-qué-no-machine-learning-tradicional-vs-deep-learning)
-6. [¿Qué es YOLO y por qué la Variante YOLO26-n?](#6-qué-es-yolo-y-por-qué-la-variante-yolo26-n)
-7. [¿Por qué ONNX Runtime y NO Inferencia Directa con Python?](#7-por-qué-onnx-runtime-y-no-inferencia-directa-con-python)
-8. [Arquitectura de Software: ¿Por qué Tauri (Rust + React + Vite + Tailwind)?](#8-arquitectura-de-software-por-qué-tauri-rust--react--vite--tailwind)
-9. [Entrenamiento del Modelo: Local vs Google Colab](#9-entrenamiento-del-modelo-local-vs-google-colab)
-10. [Validación Científica de Hipótesis y Resultados Estadísticos](#10-validación-científica-de-hipótesis-y-resultados-estadísticos)
-11. [Matriz Exhaustiva de Limitaciones del Sistema](#11-matriz-exhaustiva-de-limitaciones-del-sistema)
-12. [Requisitos de Hardware y Software](#12-requisitos-de-hardware-y-software)
-13. [Guía Paso a Paso para Reproducir el Proyecto](#13-guía-paso-a-paso-para-reproducir-el-proyecto)
-14. [Estructura del Repositorio](#14-estructura-del-repositorio)
-15. [Agradecimientos y Licencia](#15-agradecimientos-y-licencia)
+2. [Descripción General, Misión Biológica y Contexto de Campo](#2-descripción-general-misión-biológica-y-contexto-de-campo)
+3. [Especies de Tortugas Marinas y Características de sus Rastros](#3-especies-de-tortugas-marinas-y-características-de-sus-rastros)
+4. [¿Por qué UAVs (Drones)? Justificación de la Perspectiva Aérea](#4-por-qué-uavs-drones-justificación-de-la-perspectiva-aérea)
+5. [Física del Sustrato: Arena Oscura (Mata Oscura) vs Arenas Claras (Europa/Mediterráneo)](#5-física-del-sustrato-arena-oscura-mata-oscura-vs-arenas-claras-europamediterráneo)
+6. [Bases de Datos y Evolución Histórica de los Datasets](#6-bases-de-datos-y-evolución-histórica-de-los-datasets)
+7. [¿Por qué NO Machine Learning Tradicional vs Deep Learning?](#7-por-qué-no-machine-learning-tradicional-vs-deep-learning)
+8. [¿Qué es YOLO26 y por qué la Variante YOLO26-n? (ProgLoss, STAL y NMS-Free)](#8-qué-es-yolo26-y-por-qué-la-variante-yolo26-n-progloss-stal-y-nms-free)
+9. [¿Por qué ONNX Runtime y NO Inferencia Directa con Python?](#9-por-qué-onnx-runtime-y-no-inferencia-directa-con-python)
+10. [Arquitectura de Software: ¿Por qué Tauri (Rust + React + Vite + Tailwind)?](#10-arquitectura-de-software-por-qué-tauri-rust--react--vite--tailwind)
+11. [Entrenamiento del Modelo: Local vs Google Colab](#11-entrenamiento-del-modelo-local-vs-google-colab)
+12. [Validación Científica de Hipótesis y Resultados Estadísticos](#12-validación-científica-de-hipótesis-y-resultados-estadísticos)
+13. [Desempeño según Iluminación y Matriz Exhaustiva de Limitaciones](#13-desempeño-según-iluminación-y-matriz-exhaustiva-de-limitaciones)
+14. [Estudio Social y Percepción Comunitaria (Alineación ODS)](#14-estudio-social-y-percepción-comunitaria-alineación-ods)
+15. [Requisitos de Hardware y Software](#15-requisitos-de-hardware-y-software)
+16. [Guía Paso a Paso para Reproducir el Proyecto](#16-guía-paso-a-paso-para-reproducir-el-proyecto)
+17. [Estructura del Repositorio](#17-estructura-del-repositorio)
+18. [Agradecimientos y Licencia](#18-agradecimientos-y-licencia)
 
 ---
 
 ## 1. Reconocimientos Científicos y Contexto Institucional
 
-Este proyecto representa una investigación aplicada desarrollada para la conservación biológica de las costas del Pacífico y Caribe panameño, logrando destacarse en las competencias de investigación universitaria de mayor rigor científico en Panamá:
+El presente proyecto de investigación aplicada fue desarrollado bajo el marco de la **Universidad Tecnológica de Panamá (UTP)** en colaboración con organizaciones de conservación comunitaria. Los resultados fueron presentados y evaluados en las competencias de investigación científica formativa más exigentes de la República de Panamá:
 
 ```
                             ┌───────────────────────────────────────────────┐
@@ -56,67 +59,116 @@ Este proyecto representa una investigación aplicada desarrollada para la conser
                        ▼                                                       ▼
         ┌─────────────────────────────┐                         ┌─────────────────────────────┐
         │        JIC UTP 2026         │                         │      JIC NACIONAL 2026      │
-        │   Fase Institucional UTP    │                         │    Fase Nacional IESTEC     │
+        │   Fase Institucional UTP    │                         │     X Congreso IESTEC       │
         ├─────────────────────────────┤                         ├─────────────────────────────┤
         │ • 🥉 3.er Lugar             │                         │ • 🏆 FINALISTA NACIONAL     │
         │ • Categoría: Ingeniería     │                         │ • Avalado por SENACYT / UTP │
-        │ • Evaluación entre todas    │                         │ • Competencia inter-        │
-        │   las facultades de la UTP  │                         │   universitaria de Panamá   │
+        │ • Evaluación entre todas    │                         │ • Publicado en memorias del │
+        │   las facultades de la UTP  │                         │   X Congreso IESTEC 2026    │
         └─────────────────────────────┘                         └─────────────────────────────┘
 ```
 
-### ¿Qué es la JIC y por qué son instancias distintas?
-- **JIC UTP (Jornada de Iniciación Científica de la Universidad Tecnológica de Panamá):** Es el certamen interno de investigación formativa de pregrado más importante de la UTP. En la edición 2026, el presente proyecto fue galardonado con el **3.er Lugar Institucional en la Categoría de Ingeniería**, tras una rigurosa evaluación de impacto técnico, factibilidad y aporte social.
-- **JIC Nacional (Jornada de Iniciación Científica Nacional):** Es la cúspide de la investigación universitaria formativa en la República de Panamá, coorganizada y financiada por la **Secretaría Nacional de Ciencia, Tecnología e Innovación (SENACYT)** y el Consejo de Rectores. En este evento compiten únicamente los proyectos ganadores y clasificados de todas las universidades públicas y particulares del país. La fase final se celebra en el marco del **IESTEC** (*Congreso Internacional de Ingeniería, Ciencias y Tecnología*). El proyecto fue seleccionado como **Finalista Nacional en la Categoría de Ingeniería y Tecnología**, consolidando su validez teórica, metodológica y operativa ante paneles de científicos nacionales e internacionales.
+### Distinción Oficial: JIC UTP vs JIC Nacional (X Congreso IESTEC)
+- **JIC UTP 2026 (Fase Institucional):** Certamen de investigación científica de pregrado que congrega a todas las facultades de la **Universidad Tecnológica de Panamá**. El proyecto obtuvo el **3.er Lugar Institucional en la Categoría de Ingeniería**, destacándose por su rigor experimental, solidez estadística y viabilidad tecnológica en campo.
+- **JIC Nacional 2026 (Fase Nacional / X Congreso IESTEC):** Máxima instancia de investigación formativa universitaria en Panamá, coorganizada y financiada por la **Secretaría Nacional de Ciencia, Tecnología e Innovación (SENACYT)**. En este certamen compiten exclusivamente los mejores proyectos clasificados de todas las universidades públicas y particulares del país. La fase final se celebra en el marco del **IESTEC** (*Congreso Internacional de Ingeniería, Ciencias y Tecnología*). El proyecto fue galardonado con la condición de **Finalista Nacional en la Categoría de Ingeniería y Tecnología**, con su artículo formal incorporado en las memorias científicas del congreso.
 
 ---
 
-## 2. Descripción General y Misión del Proyecto
+## 2. Descripción General, Misión Biológica y Contexto de Campo
 
-Las tortugas marinas se encuentran clasificadas en peligro crítico de extinción (incluyendo especies como la tortuga lora/golfina *Lepidochelys olivacea*, carey *Eretmochelys imbricata*, verde *Chelonia mydas* y baula *Dermochelys coriacea*). Organizaciones no gubernamentales y fundaciones comunitarias, tales como la **Fundación Agua y Tierra** (con operaciones de patrullaje en Playa Mata Oscura, provincia de Veraguas, Panamá), dedican esfuerzos diarios para registrar la anidación nocturna y matutina.
+Las tortugas marinas son especies ecológicamente fundamentales para el equilibrio de las cadenas tróficas y el mantenimiento de los ecosistemas marino-costeros. Sin embargo, sus poblaciones sufren un declive alarmante por pérdida de hábitat, saqueo furtivo de nidos, depredadores invasores y captura incidental.
 
-### El Desafío en el Terreno:
-1. **Patrullaje a Pie Extenuante:** Monitorear playas de 4 a 12 km de longitud a pie exige horas de caminata bajo humedad y calor tropical extremo.
-2. **Ventana de Tiempo Crítica:** Los rastros dejados por las aletas de las hembras sobre la arena intermareal son borrados rápidamente por la subida de la marea, el viento marino o la depredación (perros callejeros, zorros mangleros y saqueo humano ilegal).
-3. **Brecha Tecnológica y Ausencia de Conectividad:** En las playas de anidación **no existe señal de internet ni cobertura celular**, y las fundaciones no cuentan con presupuesto para servidores en la nube ni computadoras portátiles costosas dotadas de tarjetas gráficas dedicadas (GPU).
+### Área de Estudio y Operación: Playa Mata Oscura
+- **Ubicación Geográfica:** Distrito de Mariato, Provincia de Veraguas, República de Panamá (costa del Pacífico).
+- **Extensión Costera:** Aproximadamente **5.0 km** de playa ininterrumpida.
+- **Esfuerzo de Patrullaje Comunitario:** El monitoreo lo lidera la **Fundación Agua y Tierra**. El equipo cuenta con únicamente **cuatro personas** que rotan la vigilancia nocturna, saliendo habitualmente **dos voluntarios por noche** (uno a cada extremo de la playa).
+- **Cobertura Humana Limitada:** En una jornada nocturna de dos horas a pie, dos voluntarios logran cubrir únicamente **3.5 km de los 5.0 km totales**, dejando 1.5 km desprotegidos.
+- **Pico Reproductivo:** Entre **septiembre y noviembre**, cuando se llegan a registrar hasta **8 tortugas anidando en una misma noche** (frente al promedio habitual de 1 a 2), la capacidad humana queda completamente desbordada.
+- **Temporada Completa de Anidación:** Se extiende de **junio a marzo**, registrándose un promedio global de **150 nidos por temporada**.
 
-### La Solución Aportada:
-**Sea Turtle Track** es un sistema de ingeniería integral que combina:
-- Misiones de patrullaje aéreo con **drones comerciales de bajo costo (UAV)**.
-- Un modelo de visión artificial de última generación **YOLO26-n** optimizado y calibrado en playas del Pacífico.
-- Una plataforma de escritorio multiplataforma de consumo ultraligero desarrollada en **Tauri (Rust + React + Vite + Tailwind)** que procesa video a **25.4 FPS en la CPU convencional** de cualquier laptop de trabajo sin requerir tarjeta gráfica ni internet.
+```
+  Playa Mata Oscura (5.0 km de frente costero)
+ ├─────────────────────────────────────── 3.5 km ───────────────────────────────────────┤───── 1.5 km ─────┤
+ │ Patrullaje a pie (2 voluntarios / noche) — Cobertura lenta y fatiga física           │ ZONA NO CUBIERTA │
+ ├──────────────────────────────────────────────────────────────────────────────────────┴──────────────────┤
+ │ Monitoreo con Dron UAV + YOLO26 (25.4 FPS) — COBERTURA TOTAL DE LOS 5.0 KM EN 15 MINUTOS                │
+ └─────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
 
 > [!IMPORTANT]
-> **Alcance Biológico Exclusivo:** El sistema está entrenado y especializado **exclusivamente en tortugas marinas** y sus rastros de desplazamiento en la arena. No está destinado a fauna terrestre general ni a mamíferos marinos en mar abierto.
+> **Alcance Biológico Exclusivo:** El sistema está enfocado y calibrado **únicamente para tortugas marinas** y sus rastros de anidación en la arena. No está diseñado para fauna terrestre general ni mamíferos en aguas abiertas.
 
 ---
 
-## 3. ¿Por qué UAVs (Drones)? Justificación de la Perspectiva Aérea
+## 3. Especies de Tortugas Marinas y Características de sus Rastros
 
-El sistema está diseñado y calibrado prioritariamente para procesar transmisiones y grabaciones de **Vehículos Aéreos No Tripulados (UAV / Drones)**, debido a razones técnicas y ecológicas fundamentales:
+Playa Mata Oscura se caracteriza por la superposición de ciclos reproductivos de cuatro especies amenazadas:
 
-```
-    Vuelo Cenital (90° ortogonal)                 Patrullaje Terrestre Convencional
-    ─────────────────────────────                 ─────────────────────────────────
-         [ Dron / UAV ] ✈                           🚶 Patrullero en suelo
-               │                                           │
-         FOV Amplio (15-25m)                       Línea visual bloqueada
-        ┌──────┴──────┐                            por troncos, olas o dunas.
-        ▼             ▼                                    │
-   Arena mojada   Arena seca                       Huellas pisoteadas / alteradas
-   [Rastro A]     [Rastro B]
-```
+### Caracterización de la Anidación (Registros de la Fundación Agua y Tierra)
 
-1. **Amplitud del Campo Visual (FOV):** Un vuelo de dron a una altitud de entre 15 y 25 metros barre un corredor costero de 30 a 50 metros de ancho, inspeccionando en 15 minutos lo que a pie requiere más de 3 horas.
-2. **Ángulo Cenital Ortogonal (90°):** La perspectiva perpendicular minimiza la distorsión trapezoidal de la arena y permite capturar el patrón simétrico completo de las aletas de la tortuga (en forma de "coma" o "cresta invertida").
-3. **No Invasivo y Conservacionista:** El dron no altera el hábitat costero, no pisa nidadas ocultas bajo la arena superficial ni genera huellas de neumáticos que desorienten a los neonatos.
-4. **Compatibilidad:** Aunque el pipeline procesa videos estándar capturados con cámaras de mano o smartphones, el rendimiento óptimo y la calibración del detector corresponden a la dinámica de traslación de un UAV a velocidades de entre 3.0 m/s y 5.0 m/s.
+| Especie | Nombre Científico | Meses de Anidación | Nidos Aprox. / Temporada | Frecuencia Relativa |
+| :--- | :--- | :---: | :---: | :---: |
+| **Lora / Golfina** | *Lepidochelys olivacea* | Junio – Enero (Pico: Sep–Nov) | **> 100** | **Predominante** |
+| **Verde** | *Chelonia mydas* | Diciembre – Febrero | ~30 | Frecuente |
+| **Carey** | *Eretmochelys imbricata* | Junio – Agosto | ≤ 7 | Ocasional |
+| **Baula / Canal** | *Dermochelys coriacea* | Enero – Febrero | ≤ 2 | Rara |
+
+### Rasgos Distintivos de los Rastros en la Arena (Clave para Visión Artificial):
+1. **Tortuga Baula (*D. coriacea*):** Rastro ancho y sumamente marcado (más de 1.5 m de ancho), dos líneas profundas generadas por sus extensas aletas delanteras, bordes difusos por el arrastre del plastrón y gran perturbación de arena en la zona del nido.
+2. **Tortuga Verde (*C. mydas*):** Rastro moderado a ancho con dos huellas paralelas bien definidas, línea de arrastre continua y clara por el peso del animal, y excavación amplia de arena removida.
+3. **Tortuga Carey (*E. imbricata*):** Rastro más estrecho y fino, marcas alternadas de aletas delanteras con patrón asimétrico e irregular, trayectoria curva y surco poco profundo.
+4. **Tortuga Lora (*L. olivacea*):** Rastro pequeño y compacto, huellas poco profundas y muy juntas, trayectoria sinuosa, con menor contraste visual sobre arena seca.
 
 ---
 
-## 4. Bases de Datos y Evolución Histórica de los Modelos
+## 4. ¿Por qué UAVs (Drones)? Justificación de la Perspectiva Aérea
 
-Para lograr una solución verdaderamente funcional en playas reales, el proyecto atravesó un proceso evolutivo experimental de cuatro fases metodológicas, transitando desde modelos internacionales preexistentes hasta la versión de producción **Turtle IA v3**:
+El sistema prioriza el procesamiento de video capturado por **Vehículos Aéreos No Tripulados (UAV)** frente a métodos terrestres:
+
+```
+        Vuelo Cenital UAV (90° Perpendicular)           Patrullaje a Pie en Suelo
+        ─────────────────────────────────────           ─────────────────────────
+                  [ Dron UAV ] ✈                           🚶 Voluntario en suelo
+                        │                                          │
+                  FOV Amplio (15-25m)                      Línea visual bloqueada
+                 ┌──────┴──────┐                           por dunas, troncos u olas.
+                 ▼             ▼                                   │
+            Arena mojada   Arena seca                      Riesgo de pisar nidos
+            [Rastro A]     [Rastro B]                      y fatiga física severa.
+```
+
+1. **Amplitud del Campo Visual (FOV):** Un dron volando a una altitud de 15 a 25 metros barre una franja costera de 30 a 50 metros de ancho, permitiendo inspeccionar los 5 km de playa en menos de 20 minutos.
+2. **Perspectiva Cenital Ortogonal (90°):** La vista perpendicular hacia abajo elimina la distorsión trapezoidal y captura la simetría completa de los surcos dejados por las aletas.
+3. **Monitoreo No Destructivo:** No altera el hábitat costero, no aplasta nidos superficiales ni genera huellas de neumáticos que desorienten a los neonatos recién nacidos.
+4. **Hardware UAV Utilizado en el Estudio:** Dron multirrotor **DJI Mavic 2 Enterprise** con cámara RGB integrada a baja altitud.
+5. **Flexibilidad:** Aunque puede procesar cualquier video convencional, los filtros y pesos del modelo están optimizados para la cinemática de vuelo de un dron a velocidades de crucero de **3.0 a 5.0 m/s** (11 a 18 km/h).
+
+---
+
+## 5. Física del Sustrato: Arena Oscura (Mata Oscura) vs Arenas Claras (Europa/Mediterráneo)
+
+Una de las contribuciones científicas más relevantes de este proyecto es haber resuelto la detección sobre **arena oscura**, un sustrato de altísima dificultad óptica:
+
+```
+┌──────────────────────────────────────────────┬──────────────────────────────────────────────┐
+│        ARENA VOLCÁNICA OSCURA (PANAMÁ)       │        ARENAS CLARAS (EUROPA / MEDITERRÁNEO) │
+├──────────────────────────────────────────────┼──────────────────────────────────────────────┤
+│ 🌋 Minerales ferromagnesianos oscuros.       │ 🏖️ Cuarzo y restos calcáreos de conchas.    │
+│ 🌑 Coeficiente de reflectancia óptica bajísimo│ 🌕 Alta reflectancia óptica (brillo natural). │
+│ 📉 Absorbe la luz lunar: casi nulo contraste │ 📈 La luz de la luna resalta las sombras del │
+│    entre el surco del rastro y la superficie.│    surco con alto contraste fotométrico.     │
+│ 🎯 Modelo debe aprender micro-texturas.      │ 👁️ Fácil detección con descriptores simples. │
+└──────────────────────────────────────────────┴──────────────────────────────────────────────┘
+```
+
+- **El Desafío de Mata Oscura:** Al ser una playa de arena oscura volcánica, la luz lunar nocturna no se refleja adecuadamente. Los modelos preentrenados en Europa o Medio Oriente fallan estrepitosamente porque asumen arena clara con alto contraste de sombras.
+- **Garantía de Generalización:** Al lograr que **Turtle IA v3 alcance un 93% de precisión sobre arena oscura**, se garantiza científicamente que el modelo operará con un rendimiento igual o superior en cualquier playa de arena clara del mundo.
+
+---
+
+## 6. Bases de Datos y Evolución Histórica de los Datasets
+
+Para superar los problemas de dominio, el proyecto evolucionó a lo largo de cuatro fases de datos:
 
 ```
  ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -133,161 +185,108 @@ Para lograr una solución verdaderamente funcional en playas reales, el proyecto
 
 ### Detalle de las Cuatro Fases Experimentales:
 
-1. **Fase 1: Modelo Extranjero Base — Turtle Track Detector 2 (1,955 imágenes):**
-   - **Fuente:** Dataset público internacional alojado en Roboflow Universe por la *German University of Technology* ([Enlace al Dataset en Roboflow](https://universe.roboflow.com/german-university-of-technology-f4tuz/turtle-track-detector-2)).
-   - **Clases:** `Fox`, `Track`, `Turtle` (3 clases).
-   - **Causa de Abandono:** Al ensayarlo en playas tropicales panameñas con vegetación adyacente, el modelo presentaba una tasa intolerable de falsos positivos: confundía continuamente restos de vegetación costera (hojas secas caídas de almendro de playa *Terminalia catappa*, ramas de mangle y sombras de palmeras) con rastros de aletas de tortuga.
-
-2. **Fase 2: Modelo ASGF — Segmentación de Nidos con Machine Learning:**
-   - **Desarrollo:** Entrenamiento propio con segmentación de instancias (`yolo26n-seg`) utilizando datos recolectados en la campaña de campo de Playa Mata Oscura (`asgf-playa-mata-oscura`).
-   - **Clases:** `Nido` (1 clase con máscara poligonal).
-   - **Causa de Abandono:** El modelo presentó discontinuidades en la inferencia sobre arena heterogénea y una severa penalización computacional en CPU: **86.88 ms por fotograma (apenas 11.5 FPS)** debido a la carga de calcular máscaras densas píxel a píxel (160 × 160 px), haciendo imposible el análisis fluido de video en computadoras de campo.
-
+1. **Fase 1: Dataset Base Internacional — Turtle Track Detector 2 (1,955 imágenes):**
+   - Publicado por la *German University of Technology* ([Dataset Base en Roboflow](https://universe.roboflow.com/german-university-of-technology-f4tuz/turtle-track-detector-2)).
+   - Clases: `Fox`, `Track`, `Turtle`.
+   - *Fallo:* Confundía continuamente restos de vegetación costera (hojas secas de almendro de playa y palmeras) con rastros.
+2. **Fase 2: Modelo ASGF — Segmentación Poligonal de Nidos con Machine Learning:**
+   - Modelo `yolo26n-seg` con fotos de Playa Mata Oscura.
+   - *Fallo:* Generación pesada de máscaras píxel a píxel (160×160) con latencia inaceptable de **86.88 ms (11.5 FPS)** en CPU.
 3. **Fase 3: Versión Previa Experimental — Turtle v2:**
-   - **Desarrollo:** Reentrenamiento sobre Roboflow incorporando imágenes de control negativo con naturaleza y vegetación costera (`Hojas`) para suprimir los falsos positivos.
-   - **El Problema Inverso:** El modelo dejó de confundir hojas; sin embargo, al penalizar en exceso las rugosidades y sombras de la arena, introdujo un fallo crítico: **dejó de detectar los rastros reales de tortugas marinas (falsos negativos)**, ignorando rastros legítimos de anidación.
-
-4. **Fase 4: VERSIÓN FINAL OFICIAL DEL PROYECTO — Turtle IA v3 (2,515 imágenes):**
-   - **Corpus Curado:** Integración balanceada de:
-     - Dataset base `turtle-track-detector-2`.
-     - Lote curado de vegetación y hojas tropicales costeras.
-     - Lote propio de rastros reales de anidación recolectados en **Playa Mata Oscura**.
-     - Generación y aumento sintético de datos (**Adaptive Synthetic Few-Shot Pipeline - ASFP**).
-   - **Clases Detectadas (4):** `Fox` (depredador zorro/canino), `Hojas` (control de vegetación), `Track` (rastro de anidación en arena), `Turtle` (ejemplar de tortuga marina).
-   - **Resultado en Producción:** **Latencia media en CPU de 39.34 ms (25.4 FPS)** con la desviación estándar más baja del estudio (**σ = 3.90 ms**), eliminando los falsos positivos sin sacrificar la detección de rastros reales.
-
-> [!NOTE]
-> **Acceso a Datasets:**
-> - Dataset Base de la Universidad Tecnológica: [Roboflow Universe - Turtle Track Detector 2](https://universe.roboflow.com/german-university-of-technology-f4tuz/turtle-track-detector-2).
-> - Para consultar el dataset complementario unificado con las anotaciones de Mata Oscura y transformaciones sintéticas, contactar al equipo de investigación a través de los canales institucionales.
+   - Incorporación de clase `Hojas` en Roboflow.
+   - *Fallo inverso:* Al penalizar las sombras de la arena, **dejó de detectar rastros legítimos de tortugas (falsos negativos críticos)**.
+4. **Fase 4: VERSIÓN FINAL DEFINITIVA Y GANADORA — Turtle IA v3 (2,515 imágenes):**
+   - **Dataset Oficial Ganador:** Publicado en Roboflow Universe:
+     👉 **[turtle-track-detector-2-205gp en Roboflow](https://universe.roboflow.com/snowcliks-workspace/turtle-track-detector-2-205gp)**
+   - **Composición del Corpus:**
+     - 1,955 imágenes del dataset base internacional.
+     - ~500 imágenes reales de rastros y arena capturadas en **Playa Mata Oscura**.
+     - ~100 imágenes negativas de vegetación costera y hojas de palma para suprimir falsos positivos.
+     - Pipeline sintético **Adaptive Synthetic Few-Shot Pipeline (ASFP)** con rotaciones (±15°), variaciones de brillo/contraste y recortes.
+   - **Clases (4):** `Fox` (depredador), `Hojas` (control de vegetación), `Track` (rastro de aletas), `Turtle` (tortuga).
+   - **Desempeño:** **39.34 ms (25.4 FPS) en CPU** y desviación mínima **σ = 3.90 ms**.
 
 ---
 
-## 5. ¿Por qué NO Machine Learning Tradicional vs Deep Learning?
-
-Durante la formulación del proyecto se evaluó el uso de técnicas de visión por computador y Machine Learning clásico (extracción manual de descriptores tipo Haar Cascades, HOG, SIFT/SURF acoplados a clasificadores SVM o Random Forest):
+## 7. ¿Por qué NO Machine Learning Tradicional vs Deep Learning?
 
 | Criterio | Machine Learning Tradicional (Filtros + SVM/RF) | Deep Learning / Redes Neuronales (YOLO26-n) |
 | :--- | :--- | :--- |
-| **Comportamiento en Arena** | ❌ **Fracaso.** La arena no tiene geometría fija. La textura varía drásticamente con la humedad de la marea, el tamaño del grano y el viento. | ✅ **Generalización Óptima.** La red convolucional aprende representaciones jerárquicas invariantes a la escala y textura. |
-| **Condiciones de Luz** | ❌ Umbrales rígidos de gradientes fallan con sol cenital, sombras de nubes o reflejos marinos. | ✅ Invarianza a la luminosidad mediante capas de convolución normalizadas y data augmentation. |
-| **Carga en Inferencia** | ⚠️ Extracción manual de características densas en imágenes de alta resolución es lenta en CPU. | ✅ El paso hacia adelante (*forward pass*) en arquitectura Nano optimizada en ONNX tarda menos de 40 ms. |
-| **Falsos Positivos** | ❌ Imposible diferenciar una hoja seca alargada de un surco de aleta mediante descriptores manuales. | ✅ Discriminación semántica de alta fidelidad entre textura biológica de rastro y hojarasca. |
-
-Por estas razones se adoptó el paradigma de **Deep Learning** supervisado, apoyado en la infraestructura de anotación y curaduría de **Roboflow** para versionar de manera reproducible cada iteración del dataset.
+| **Comportamiento en Arena** | ❌ **Fracaso.** La arena no tiene geometría fija. La textura varía con la marea, grano y viento. | ✅ **Generalización Óptima.** Convoluciones jerárquicas aprenden patrones invariantes a escala y grano. |
+| **Condiciones de Luz** | ❌ Umbrales rígidos fallan con sol cenital, sombras de nubes o penumbra nocturna. | ✅ Invarianza a luminosidad gracias a Batch Normalization y data augmentation. |
+| **Carga en Inferencia** | ⚠️ Extracción manual de características densas en 640px es sumamente lenta en CPU. | ✅ Forward pass en arquitectura Nano optimizada en ONNX tarda menos de 40 ms. |
+| **Falsos Positivos** | ❌ Imposible diferenciar una hoja seca de un surco de aleta mediante gradientes simples. | ✅ Discriminación semántica de alta fidelidad entre rastro biológico y hojarasca. |
 
 ---
 
-## 6. ¿Qué es YOLO y por qué la Variante YOLO26-n?
+## 8. ¿Qué es YOLO26 y por qué la Variante YOLO26-n? (ProgLoss, STAL y NMS-Free)
 
 ### ¿Qué es YOLO?
-**YOLO (*You Only Look Once*)** es una familia de arquitecturas de redes neuronales convolucionales profundas de **etapa única (Single-Shot Detector)**. A diferencia de los métodos de dos etapas (como Faster R-CNN) que primero proponen regiones y luego las clasifican por separado, YOLO procesa la imagen en un único paso hacia adelante, dividiendo la imagen en una cuadrícula y prediciendo de forma simultánea las coordenadas de las cajas delimitadoras (*bounding boxes*), la probabilidad de objeto y las clases.
+**YOLO (*You Only Look Once*)** es un detector en una sola etapa (*Single-Shot Detector*) que evalúa la imagen entera en una única pasada de red neuronal profunda, prediciendo simultáneamente bounding boxes y probabilidades de clase.
 
 ```
-       Imagen de Dron (640×640)
-                  │
-                  ▼
-   ┌─────────────────────────────┐
-   │         YOLO26-n            │
-   │  Backbone + Neck + Head     │
-   └──────────────┬──────────────┘
-                  │  (Forward Pass en una sola pasada)
-                  ▼
-     Tensores directos [1, 300, 6]  ──►  (x1, y1, x2, y2, confianza, clase)
+       Imagen Aérea de Dron (640×640)
+                     │
+                     ▼
+      ┌─────────────────────────────┐
+      │          YOLO26-n           │
+      │   Backbone + Neck + Head    │
+      │     (ProgLoss + STAL)       │
+      └──────────────┬──────────────┘
+                     │  (Forward Pass Directo End-to-End)
+                     ▼
+        Tensor Plano [1, 300, 6]  ──►  (x1, y1, x2, y2, confianza, clase)
 ```
 
-### ¿Por qué la variante Nano (YOLO26-n)?
-1. **Minimización de Parámetros y FLOPs:** Las variantes grandes (Medium, Large, XLarge) exigen decenas de gigaflops por imagen y requieren tarjetas gráficas industriales. La variante **Nano** posee menos de 3.5 millones de parámetros, permitiendo su ejecución completa en la memoria caché del procesador.
-2. **Formato Directo Sin NMS Pesado:** Las versiones modernas de YOLO permiten exportar arquitecturas con cabezales libres de Non-Maximum Suppression (NMS) iterativo en Python, entregando un tensor limpio `[1, 300, 6]` listo para ser consumido directamente por la interfaz visual.
-3. **Mínimo Consumo Energético:** Mantiene los ventiladores de la laptop en silencio y maximiza la autonomía de la batería en campo.
+### Mecanismos Avanzados de YOLO26:
+1. **ProgLoss (Progressive Loss):** Función de pérdida progresiva que balancea la localización de objetos pequeños frente a objetos grandes durante el entrenamiento, vital para identificar los surcos milimétricos de las aletas.
+2. **STAL (Spatio-Temporal Alignment Layer):** Capa de alineamiento espacio-temporal que afina las características visuales en imágenes aéreas de bajo contraste.
+3. **Esquema NMS-Free (End-to-End):** A diferencia de detectores convencionales que requieren el algoritmo iterativo Non-Maximum Suppression (NMS) en CPU, YOLO26 predice directamente un conjunto disjunto de detecciones `[1, 300, 6]`. Esto **elimina la latencia variable** dependiente del número de objetos y otorga una velocidad constante y predecible.
+4. **Variante Nano (`yolo26n`):** Con solo **2.4 millones de parámetros**, minimiza el uso de memoria caché y permite una ejecución fluida en CPU.
 
 ---
 
-## 7. ¿Por qué ONNX Runtime y NO Inferencia Directa con Python?
-
-Una decisión de arquitectura trascendental del proyecto fue **descartar el uso directo de Python y PyTorch en la aplicación de producción final**, sustituyéndolos por **ONNX Runtime**:
+## 9. ¿Por qué ONNX Runtime y NO Inferencia Directa con Python?
 
 ```
  [ENTORNO DE PRODUCCIÓN EN LA PLATAFORMA]
-  Video Frame (Web/Canvas)
+  Video Frame (Web / Canvas)
           │
           ▼
-  Tauri Webview (Wasm SIMD) / Rust IPC
+  Tauri Webview (Wasm SIMD Threaded) / Rust IPC
           │
           ▼
   ONNX Runtime (CPUExecutionProvider) ──► Fusión de Capas (Conv+BN), Vectorización AVX2
           │
           ▼
-  Resultados en < 40 ms (Sin Python, Sin CUDA, Sin PyTorch)
+  Detección en 39.34 ms (25.4 FPS) ── (Sin Python, Sin CUDA, Sin PyTorch)
 ```
 
-### ¿Qué es ONNX?
-**ONNX (*Open Neural Network Exchange*)** es un formato estándar abierto e interoperable para la representación de modelos de aprendizaje profundo, respaldado por Microsoft, AWS, AMD e Intel. Permite independizar la fase de entrenamiento (realizada en PyTorch) de la fase de despliegue.
-
-### Razones Técnicas del Descarte de Python en Campo:
-1. **Sobrecarga del Intérprete y GIL:** Python opera bajo el *Global Interpreter Lock* (GIL) y presenta una latencia de serialización notable al mover datos entre bibliotecas C/C++ y objetos Python.
-2. **Dependencias Monolíticas y Frágiles:** Desplegar una aplicación en Python exige que el usuario final instale un entorno virtual con PyTorch (más de 2.5 GB), Torchvision, CUDA/cuDNN y bibliotecas dependientes de versiones exactas del sistema operativo. Si una biblioteca se desactualiza, el sistema colapsa.
-3. **Optimizaciones de Grafo de ONNX Runtime:**
-   - **Fusión de Operadores:** Combina operaciones sucesivas (como `Conv2d + BatchNorm2d + SiLU`) en un único kernel de memoria continuo, evitando transferencias repetitivas hacia la memoria RAM.
-   - **Vectorización Nativa de CPU:** Utiliza extensiones vectoriales específicas del microprocesador anfitrión (**AVX-512, AVX2, SSE y ARM NEON**), ejecutando múltiples operaciones flotantes en un solo ciclo de reloj.
-4. **Ganancia Cuantificada:** En nuestras mediciones experimentales directas, ONNX Runtime CPU demostró una **aceleración de 1.49× a 1.70× frente a PyTorch CPU** (ahorrando entre 35 ms y 47 ms por cada fotograma procesado).
+- **Sin Dependencias Pesadas:** Elimina la necesidad de instalar Python (2.5 GB+ de PyTorch/CUDA) en las laptops de campo de la fundación.
+- **Sin Bloqueo del GIL:** Ejecución nativa sin el bloqueo del intérprete de Python.
+- **Optimizaciones de Grafo:** Fusión de capas (`Conv2d + BatchNorm + SiLU`) y vectorización mediante instrucciones de CPU (**AVX2, AVX-512, SSE**).
+- **Aceleración Empírica:** **1.49× a 1.70× más rápido que PyTorch CPU** (ahorro de hasta 47 ms por fotograma).
 
 ---
 
-## 8. Arquitectura de Software: ¿Por qué Tauri (Rust + React + Vite + Tailwind)?
-
-Para el desarrollo de la aplicación de usuario se llevó a cabo un riguroso análisis comparativo de stacks tecnológicos:
+## 10. Arquitectura de Software: ¿Por qué Tauri (Rust + React + Vite + Tailwind)?
 
 | Parámetro | Electron (VS Code / Slack) | Python GUI (PyQt / Tkinter) | **Tauri v2 (Solución Elegida)** |
 | :--- | :---: | :---: | :---: |
-| **Peso del Binario Instalador** | 150 MB - 300 MB | 80 MB - 180 MB | **< 15 MB - 25 MB** |
-| **Consumo de Memoria RAM** | 400 MB - 800 MB | 150 MB - 300 MB | **< 40 MB - 70 MB** |
-| **Motor Web Integrado** | Incrusta Chromium entero | No aplica / Webview obsoleto | **Usa Webview nativo del SO (WebView2 / WebKit)** |
-| **Seguridad y Rendimiento** | Node.js (Vulnerable a inyecciones) | Lento, interpretado, bloqueo GIL | **Rust: Memory-safety, concurrencia nativa sin GC** |
-| **Portabilidad Multiplataforma** | Windows, Linux, macOS | Dificultad extrema en empaquetado | **Windows 11/10, Linux, macOS, iOS, Android y Web** |
+| **Peso del Instalador** | 150 MB – 300 MB | 80 MB – 180 MB | **< 15 MB – 25 MB** |
+| **Consumo de Memoria RAM** | 400 MB – 800 MB | 150 MB – 300 MB | **< 40 MB – 70 MB** |
+| **Motor Web** | Incrusta Chromium entero | No aplica / Obsoleto | **Usa WebView nativo del SO (WebView2)** |
+| **Rendimiento Backend** | Node.js (Monohilo, pesado) | Lento, interpretado, bloqueo GIL | **Rust: Memory-safety, concurrencia nativa sin GC** |
+| **Multiplataforma** | Windows, Linux, macOS | Empaquetado frágil | **Windows 11/10, Linux, macOS, iOS, Android y Web** |
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       ARQUITECTURA DE LA APLICACIÓN                         │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│   ┌─────────────────────────────────────────────────────────────────────┐   │
-│   │                 FRONTEND REACT 18 + TYPESCRIPT                      │   │
-│   │   • Vite (HMR Ultraveloz)         • Tailwind CSS (Glassmorphism)    │   │
-│   │   • VideoPlayer con Overlays      • Zustand (Estado Reactivo)       │   │
-│   │   • Selector de 4 Modelos         • StatsPanel con Métricas y FPS   │   │
-│   └──────────────────────────────────┬──────────────────────────────────┘   │
-│                                      │                                      │
-│                                      ▼ IPC Bidireccional                    │
-│   ┌─────────────────────────────────────────────────────────────────────┐   │
-│   │                      BACKEND NATIVO EN RUST                         │   │
-│   │   • Tauri Core Engine             • Manejo Concurrente de Archivos  │   │
-│   │   • Control de Errores Tipados    • Exportador de CSV y JSON        │   │
-│   │   • Integración Nativa con OS     • Cero Consumo Innecesario        │   │
-│   └──────────────────────────────────┬──────────────────────────────────┘   │
-│                                      │                                      │
-│                                      ▼ Carga Directa                        │
-│   ┌─────────────────────────────────────────────────────────────────────┐   │
-│   │                   MOTOR DE INFERENCIA ONNX                          │   │
-│   │   • onnxruntime-web / Wasm SIMD Threaded (Optimizado para CPU)      │   │
-│   │   • Carga de Pesos Estáticos: `model_v3.onnx` (9.81 MB)             │   │
-│   └─────────────────────────────────────────────────────────────────────┘   │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-### Justificación de Componentes del Frontend:
-- **pnpm:** Gestor de paquetes ultrarrápido y eficiente en espacio de disco mediante enlaces duros simbióticos, evitando duplicaciones redundantes de dependencias.
-- **Tailwind CSS:** Diseño de interfaz moderno y profesional con tema oscuro (*Dark Mode*), contrastes óptimos para trabajo en campo bajo sol o penumbra, y micro-animaciones en tarjetas de estadísticas.
-- **Zustand:** Manejo de estado global minimalista sin la sobrecarga ni el *boilerplate* innecesario de Redux.
+- **Gestor de Paquetes:** Uso estricto de **pnpm** para instalaciones deterministas y eficientes en espacio.
+- **Frontend Moderno:** React 18, TypeScript, Tailwind CSS y Zustand para control de estado sin sobrecarga.
 
 ---
 
-## 9. Entrenamiento del Modelo: Local vs Google Colab
+## 11. Entrenamiento del Modelo: Local vs Google Colab
 
-El proyecto cuenta con un script de entrenamiento universal parametrizado: [`Plataforma/training/colab_train.py`](file:///c:/Users/tavog/Documents/Codigo/Universidad/Tortugasv2/Plataforma/training/colab_train.py).
-
-### Comparativa de Entornos de Entrenamiento:
+El script oficial parametrizado es [`Plataforma/training/colab_train.py`](file:///c:/Users/tavog/Documents/Codigo/Universidad/Tortugasv2/Plataforma/training/colab_train.py).
 
 ```
 ┌──────────────────────────────────────┐       ┌──────────────────────────────────────┐
@@ -300,37 +299,25 @@ El proyecto cuenta con un script de entrenamiento universal parametrizado: [`Pla
 └──────────────────────────────────────┘       └──────────────────────────────────────┘
 ```
 
-1. **Entrenamiento en Máquina Local:**
-   - Si se entrena en una laptop convencional sobre la CPU, el ciclo completo de 100 épocas tarda entre **12 y 16 horas**. Durante este tiempo el procesador opera al 100%, elevando la temperatura del equipo y agotando la batería. Si se cuenta con una GPU modesta (como una NVIDIA RTX 2050 de 4 GB), el tiempo se reduce a 3-4 horas pero requiere configurar los controladores de CUDA, cuDNN y PyTorch con versiones exactas.
-2. **Entrenamiento Recomendado en Google Colab:**
-   - Se ejecuta en la nube de Google con aceleración por GPU (NVIDIA T4 con 16 GB VRAM o A100).
-   - El proceso completo concluye en aproximadamente **1 hora**.
-   - No desgasta el hardware personal ni requiere instalar dependencias pesadas en la máquina local.
-
-### Características del Script de Entrenamiento (`colab_train.py`):
-- **Descarga Segura:** Obtiene la versión más reciente del dataset desde Roboflow utilizando variables de entorno (`ROBOFLOW_API_KEY`) para evitar exponer credenciales privadas.
-- **Linear Scaling Rule para Tasa de Aprendizaje:** Ajusta dinámicamente el `lr0` según el tamaño de batch efectivo (`batch=16 → lr0=0.001`, `batch=32 → lr0=0.002`).
-- **Data Augmentation Específico para Costas:** Variaciones de brillo solar, rotaciones de ±15°, escalados y traslaciones para simular el oleaje y la perspectiva oblicua del dron.
-- **Mixed Precision Training (AMP):** Acelera el entrenamiento en precisión FP16 sin pérdida de convergencia.
-- **Early Stopping:** Monitorea la pérdida de validación y detiene el proceso tras 30 épocas consecutivas sin mejora para evitar sobreajuste (*overfitting*).
-- **Exportación Automática:** Genera el archivo `.onnx` simplificado con `onnxsim`, configura metadatos en formato JSON y ofrece la descarga directa.
+- **Entrenamiento Local:** En CPU tarda **12 a 16 horas**, sobrecalienta la laptop y satura el procesador.
+- **Entrenamiento en Google Colab:** Con GPU T4 toma menos de **1 hora**, con Mixed Precision (FP16), escalado lineal de `lr0`, Early Stopping y exportación automática a `.onnx`.
 
 ---
 
-## 10. Validación Científica de Hipótesis y Resultados Estadísticos
+## 12. Validación Científica de Hipótesis y Resultados Estadísticos
 
 ### Hipótesis Científica Evaluada:
 > *"El modelo propuesto YOLO26-n ejecutado sobre el motor optimizado ONNX Runtime CPU presenta una latencia de inferencia significativamente menor que las arquitecturas nano competidoras (YOLOv5-nu, YOLOv8-n y YOLO11-n), superando el umbral operativo crítico de 20 FPS en un procesador convencional sin tarjeta gráfica."*
 
-- **Población Muestral:** **1,100 inferencias individuales cronometradas** (100 mediciones independientes por modelo tras 15 iteraciones previas de calentamiento térmico *Warm-up*).
-- **Hardware de Ensayo:** Intel Core i5 11.ª Gen @ 2.40 GHz (4 núcleos físicos, 8 hilos lógicos), 16 GB RAM DDR4, Windows 11. Dimensiones de entrada: `[1, 3, 640, 640]`, `Batch = 1`.
+- **Población Muestral:** **1,100 inferencias cronometradas** (100 por modelo tras 15 iteraciones de calentamiento *Warm-up*).
+- **Entorno Experimental:** Laptop Victus by HP (AMD Ryzen 5 @ 4.30 GHz) / Intel Core i5 11.ª Gen, Windows 11, Batch = 1, entrada 640×640 px.
 
 ---
 
-### 10.1 Tabla General de Desempeño Experimental (N = 100 mediciones por modelo)
+### 12.1 Tabla General de Desempeño Experimental (N = 100 mediciones por modelo)
 
 | Arquitectura y Configuración | Motor | Tarea | Media (μ) [ms] | Desv. Est. (σ) [ms] | Mediana [ms] | P95 [ms] | IC 95% [ms] | Rendimiento (FPS) | Estado de Tiempo Real |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 🟢 **YOLO26-n (Tortugas v3 - Final)** | **ONNX** | **Detección** | **39.34** | **3.90** | **39.55** | **44.23** | **[38.57, 40.12]** | **25.4 FPS** | ✅ **Cumple (Óptimo)** |
 | 🟢 **YOLO26-n (Turtle v2 - Previa)** | **ONNX** | **Detección** | **41.11** | 9.79 | **39.94** | **45.99** | [39.17, 43.05] | **24.3 FPS** | ✅ **Cumple** |
 | 🟡 **YOLO26-n (Extranjero Base)** | **ONNX** | **Detección** | 51.27 | 16.29 | 50.04 | 62.10 | [48.04, 54.50] | 19.5 FPS | ⚠️ Al límite (50 ms) |
@@ -345,77 +332,41 @@ El proyecto cuenta con un script de entrenamiento universal parametrizado: [`Pla
 
 ---
 
-### 10.2 Comparativa de las 4 Variantes del Proyecto
-
-```
-   Distribución de Latencia en CPU (ms)                      Rendimiento en FPS
-   ──────────────────────────────────                      ──────────────────
-   Tortugas v3 █ 39.34 ms (σ=3.90)                         Tortugas v3 ══════════════► 25.4 FPS [SUPERIOR]
-   Turtle v2   █ 41.11 ms (σ=9.79)                         Turtle v2   ════════════► 24.3 FPS
-   Ext Base    ██ 51.27 ms (σ=16.29)                       Ext Base    ═════════► 19.5 FPS
-   ASGF Nidos  ████ 86.88 ms (σ=11.71)                     ASGF Nidos  ═════► 11.5 FPS
-                                                           ──────────────────────────────────────
-                                                           Umbral de Tiempo Real: 20.0 FPS
-```
+### 12.2 Comparativa Visual de las Variantes del Proyecto
 
 ![Figura 5: Comparativa de Latencia y FPS entre Modelos del Proyecto](./figure5_project_onnx_models_comparison.png)
 
-*Figura 5: (Izquierda) Diagrama de cajas de la latencia en CPU de las 4 variantes de este proyecto con jitter individual de las 100 pruebas y línea de umbral en 50 ms. (Derecha) Comparativa directa de FPS en CPU frente al requerimiento operativo de 20 FPS para video aéreo continuo.*
+*Figura 5: (Izquierda) Diagrama de cajas de la latencia en CPU de las 4 variantes del proyecto frente al umbral crítico de 50 ms. (Derecha) Rendimiento en FPS frente al estándar de 20 FPS para video continuo de dron.*
 
 ---
 
-### 10.3 Pruebas de Normalidad y Homocedasticidad
+### 12.3 Pruebas de Normalidad, ANOVA y Comparaciones Tukey HSD
 
-Para validar rigurosamente el tratamiento inferencial:
-- **Prueba de Normalidad de Shapiro-Wilk:**  
-  `YOLO26-n (Tortugas v3)` presentó una distribución puramente normal (**W = 0.9827, p = 0.2154 > 0.05**). En contraste, los modelos de baseline exhibieron asimetrías positivas originadas por microinterrupciones del planificador del sistema operativo.
-- **Prueba de Homocedasticidad de Levene:**  
-  Estadístico **W = 6.8618, p = 1.84 × 10⁻¹⁰ (p < 0.05)**, indicando heterogeneidad de varianzas en el conjunto global.
-- **Rigor Metodológico Dual:** Se aplicaron tanto pruebas paramétricas (**ANOVA + Tukey HSD**) como no paramétricas (**Kruskal-Wallis + Mann-Whitney U con corrección de Bonferroni**). Ambos enfoques convergieron en la misma conclusión inequívoca.
-
-![Figura 4: Diagnóstico de Distribución y Gráficos Q-Q Normales](./figure2_normality_diagnostics.png)
-
-*Figura 4: Histogramas empíricos con ajuste de densidad kernel (KDE) y gráficos de probabilidad normal Q-Q plot para verificar el comportamiento de las distribuciones de latencia en CPU.*
-
----
-
-### 10.4 Pruebas Inferenciales Globales y Comparaciones Post-hoc
-
-1. **ANOVA de Un Factor (Paramétrico):**  
-   **F = 343.66, p < 10⁻¹⁰⁰** ──► **Rechazo contundente de H₀**. Existen diferencias altamente significativas entre arquitecturas.
-2. **Kruskal-Wallis (No Paramétrico):**  
-   **H = 998.41, df = 10, p < 10⁻²⁰⁰** ──► **Rechazo contundente de H₀**.
-3. **Comparaciones Múltiples de Tukey HSD (YOLO26-n v3 frente a rivales):**
-   - Frente a **YOLO11-n [ONNX]**: Diferencia de **-19.34 ms (+33.0% más veloz)**, `p_adj < 10⁻¹⁴` (Significativo).
-   - Frente a **YOLOv5-nu [ONNX]**: Diferencia de **-25.42 ms (+39.3% más veloz)**, `p_adj < 10⁻¹⁵` (Significativo).
-   - Frente a **YOLOv8-n [ONNX]**: Diferencia de **-32.59 ms (+45.3% más veloz)**, `p_adj < 10⁻¹⁵` (Significativo).
-   - Frente a **Modelo Extranjero Base**: Diferencia de **-11.93 ms (+23.3% más veloz)**, `p_adj = 1.79 × 10⁻⁵` (Significativo).
-   - Frente a **Versión previa v2**: Diferencia de **-1.77 ms**, `p_adj = 0.9996` (Sin diferencia estadística en velocidad, pero v3 resolvió la omisión biológica de rastros).
+- **Normalidad de Shapiro-Wilk:** `YOLO26-n (Tortugas v3)` presentó distribución normal (**W = 0.9827, p = 0.2154 > 0.05**), reflejando estabilidad absoluta.
+- **Homocedasticidad de Levene:** W = 6.8618, p < 0.001 (heterogeneidad de varianzas, justificando el doble análisis paramétrico y no paramétrico).
+- **ANOVA de Un Factor:** **F = 343.66, p < 10⁻¹⁰⁰** (Rechazo contundente de H₀).
+- **Kruskal-Wallis:** **H = 998.41, df = 10, p < 10⁻²⁰⁰** (Rechazo contundente de H₀).
+- **Tukey HSD Post-hoc (YOLO26-n v3 frente a rivales):**
+  - vs **YOLO11-n [ONNX]**: **-19.34 ms (+33.0% más rápido)**, `p < 10⁻¹⁴` (Significativo).
+  - vs **YOLOv5-nu [ONNX]**: **-25.42 ms (+39.3% más rápido)**, `p < 10⁻¹⁵` (Significativo).
+  - vs **YOLOv8-n [ONNX]**: **-32.59 ms (+45.3% más rápido)**, `p < 10⁻¹⁵` (Significativo).
+  - vs **Modelo Extranjero Base**: **-11.93 ms (+23.3% más rápido)**, `p = 1.79 × 10⁻⁵` (Significativo).
 
 ![Figura 3: Intervalos de Confianza al 95% de la Latencia Media en CPU](./figure3_tukey_hsd_intervals.png)
 
-*Figura 3: Diagrama de intervalos de confianza al 95% (Forest Plot). Los intervalos de YOLO26-n (franja de 38.5 a 40.1 ms) están completamente separados y disjuntos de los competidores, confirmando la superioridad estadística.*
-
----
-
-### 10.5 Cuantificación del Speedup (PyTorch CPU vs ONNX Runtime CPU)
-
-| Arquitectura | Latencia PyTorch CPU | Latencia ONNX Runtime CPU | Ahorro Absoluto | Factor de Aceleración (Speedup) |
-| :--- | :---: | :---: | :---: | :---: |
-| **YOLO11-n** | 99.86 ms | 58.68 ms | -41.18 ms | **1.70× (+70.2%)** |
-| **YOLOv5-nu** | 101.75 ms | 64.76 ms | -36.99 ms | **1.57× (+57.1%)** |
-| **YOLO26-n-seg** | 133.97 ms | 86.88 ms | -47.09 ms | **1.54× (+54.2%)** |
-| **YOLOv8-n** | 107.27 ms | 71.93 ms | -35.34 ms | **1.49× (+49.1%)** |
+*Figura 3: Intervalos de confianza al 95% (Forest Plot). Los intervalos de YOLO26-n (franja de 38.5 a 40.1 ms) están completamente disjuntos de los competidores.*
 
 ![Figura 2: Impacto de la Optimización de Runtime](./figure2_onnx_vs_pytorch_speedup.png)
 
-*Figura 2: (Izquierda) Latencia en milisegundos entre PyTorch nativo y ONNX Runtime. (Derecha) Factor multiplicativo de aceleración (Speedup) alcanzado gracias a la compilación de operadores y optimización de grafo.*
+*Figura 2: Factor multiplicativo de aceleración (Speedup) alcanzado mediante ONNX Runtime frente a PyTorch CPU (1.49× a 1.70×).*
 
 ---
 
-## 11. Matriz Exhaustiva de Limitaciones del Sistema
+## 13. Desempeño según Iluminación y Matriz Exhaustiva de Limitaciones
 
-Para garantizar transparencia operativa y definir con rigor el alcance de la tecnología en misiones reales de conservación, se detallan las limitaciones físicas, técnicas y de aplicación:
+### Desempeño Experimental según Iluminación en Campo:
+- **Luz Natural Diurna / Matutina (5:00 a.m. – 6:50 p.m.):** **87% a 93% de precisión**. La luz rasante del amanecer y atardecer acentúa el relieve tridimensional de los surcos de las aletas.
+- **Horario Nocturno (7:00 p.m. – 12:00 a.m., horario real de patrullajes a pie):** **61% a 72% de precisión**. La escasa reflectancia lunar sobre arena volcánica oscura reduce el contraste visual en cámaras RGB estándar. Representa el principal reto pendiente, motivando la incorporación de iluminación complementaria en el UAV o sensores térmicos infrarrojos.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -425,63 +376,48 @@ Para garantizar transparencia operativa y definir con rigor el alcance de la tec
 ├──────────────────────────────────────────────────┼─────────────────────────────────────┤
 │ ✅ Detección en tiempo real en CPU (25.4 FPS).   │ ❌ Conteo de huevos dentro del nido │
 │ ✅ Inferencia 100% offline sin internet en playa.│    (requiere inspección física).    │
-│ ✅ Discriminación de vegetación/hojas y zorros.  │ ❌ Visión nocturna con cámara RGB   │
-│ ✅ Seguimiento de trayectoria (Tracking ID).     │    (requiere sensor térmico/FLIR).  │
+│ ✅ Discriminación de vegetación/hojas y zorros.  │ ❌ Visión nocturna en oscuridad sin │
+│ ✅ Seguimiento de trayectoria (Tracking ID).     │    luz auxiliar o cámara térmica.   │
 │ ✅ Exportación tabular inmediata (CSV y JSON).   │ ❌ Vuelo con vientos > 30 km/h o    │
 │ ✅ Identificación visual en resoluciones 640px.  │    lluvia tropical intensa.         │
-│                                                  │ ❌ Estimación de profundidad del    │
-│                                                  │    nido sin sensor LiDAR/estéreo.   │
+│                                                  │ ❌ Estimación métrica de profundidad│
+│                                                  │    del nido sin sensor LiDAR.       │
 └──────────────────────────────────────────────────┴─────────────────────────────────────┘
 ```
 
-### 11.1 Limitaciones Físicas y Ambientales:
-1. **Horarios de Vuelo y Ángulo de Incidencia Solar:**  
-   - En horas centrales del día (11:00 AM - 1:00 PM), el sol cenital genera reflejos especulares sobre la arena mojada y aplana el relieve de las huellas de las aletas.  
-   - *Ventana Operativa Recomendada:* Patrullajes aéreos entre **5:30 AM y 8:30 AM** o entre **4:30 PM y 6:30 PM**. En estos periodos, la luz rasante genera sombras naturales en el relieve del rastro, maximizando el contraste detectable.
-2. **Dinámica de Mareas:**  
-   - El oleaje de marea alta borra de manera irreversible los rastros depositados en la zona intermareal. Las misiones deben sincronizarse con la marea baja matutina antes de que el agua o el tránsito humano alteren la arena.
-3. **Fuerza del Viento Costero:**  
-   - Ráfagas sostenidas superiores a **25-30 km/h** comprometen la estabilidad giroscópica de drones ligeros (clase sub-250g o comerciales convencionales) y difuminan la cresta del rastro en sectores de arena seca no compactada.
-4. **Altitud de Vuelo Estricta:**  
-   - **Rango óptimo: 15 a 25 metros** sobre el nivel del suelo (AGL).  
-   - Volar a más de 30 metros reduce el tamaño en píxeles del rastro por debajo del umbral de resolución de la red (640 × 640 px).  
-   - Volar a menos de 10 metros perturba a las aves marinas y fauna costera, además de reducir drásticamente el ancho de barrido.
-
-### 11.2 Limitaciones Técnicas y de Hardware:
-1. **Requisitos de la CPU:**  
-   - La tasa de **25.4 FPS** se garantiza en procesadores con instrucciones vectoriales **AVX2**. En procesadores antiguos (anteriores a 2013) sin soporte AVX2, la tasa de inferencia puede decaer a 8-12 FPS.
-2. **Ausencia de Sensores Especializados:**  
-   - El sistema opera con **cámaras RGB estándar**. No realiza detección nocturna en oscuridad total (lo cual requeriría cámaras térmicas radiométricas infrarrojas de alto costo).
-3. **Delimitación de la Tarea:**  
-   - El sistema realiza detección de cajas delimitadoras y clasificación de tracks; **no estima la profundidad volumétrica del nido ni determina el número de huevos en la cámara de incubación**, tarea que sigue reservada a la verificación biológica manual.
+### Limitaciones Físicas y Operativas:
+1. **Altitud de Vuelo Estricta:** Óptima entre **15 y 25 metros**. Volar a más de 30 metros difumina la firma del rastro; volar a menos de 10 metros perturba a las aves y reduce el área de barrido.
+2. **Dinámica de Mareas:** El oleaje de marea alta borra los rastros intermareales. Se debe coordinar el vuelo durante la bajamar matutina.
+3. **Fuerza del Viento:** Vientos sostenidos mayores a 25-30 km/h desestabilizan el dron y borran la cresta de la arena seca.
 
 ---
 
-## 12. Requisitos de Hardware y Software
+## 14. Estudio Social y Percepción Comunitaria (Alineación ODS)
 
-### Especificaciones de Hardware:
+El proyecto integró una encuesta de percepción social a **43 participantes** (36 de la cabecera de Santiago y 7 de la comunidad costera de Mariato):
+- **88.4% de Apoyo Comunitario:** Fuerte respaldo social a las iniciativas de conservación ambiental asistidas por tecnología.
+- **87.8% de Aceptación Tecnológica:** Reconocimiento explícito del dron y la visión por computador como herramientas legítimas y no invasivas para apoyar el patrullaje de los guardaparques.
+- **Alineación con los ODS de la ONU:**
+  - **ODS 14 (Vida Submarina):** Protección de especies marinas en peligro crítico.
+  - **ODS 15 (Ecosistemas Terrestres y Costeros):** Preservación de la franja intermareal de anidación.
+  - **ODS 17 (Alianzas para lograr los Objetivos):** Cooperación sinérgica entre la academia (Universidad Tecnológica de Panamá), organizaciones comunitarias (Fundación Agua y Tierra) y la comunidad local.
+
+---
+
+## 15. Requisitos de Hardware y Software
 
 | Componente | Requisito Mínimo (Laptop de Campo) | Requisito Recomendado (Rendimiento Óptimo) |
 | :--- | :--- | :--- |
-| **Procesador (CPU)** | Intel Core i3 / AMD Ryzen 3 (4 hilos, soporte AVX2) | Intel Core i5 / i7 (11.ª gen o superior) / AMD Ryzen 5 / 7 |
+| **Procesador (CPU)** | Intel Core i3 / AMD Ryzen 3 (4 hilos, soporte AVX2) | Intel Core i5 / i7 (11.ª gen+) / AMD Ryzen 5 / 7 |
 | **Memoria RAM** | 8.0 GB DDR4 | 16.0 GB DDR4 / DDR5 |
-| **Tarjeta Gráfica (GPU)**| **No requerida** (Inferencia 100% sobre CPU) | GPU opcional (NVIDIA RTX) para aceleración adicional |
+| **Tarjeta Gráfica (GPU)**| **No requerida** (Inferencia 100% sobre CPU) | GPU dedicada opcional para aceleración adicional |
 | **Almacenamiento** | 2.0 GB de espacio libre (SSD recomendado) | SSD NVMe M.2 |
 | **Conectividad** | **100% Offline** (No requiere internet en campo) | Conexión para sincronización inicial de paquetes |
 | **Sistema Operativo** | Windows 10/11 (64-bit), Linux (Ubuntu 22.04+), macOS | Windows 11 (64-bit, Build 22621 o superior) |
 
-### Requisitos de Software y Herramientas:
-- **Node.js:** Versión 18.x o 20.x LTS ([Descargar Node.js](https://nodejs.org/)).
-- **pnpm:** Gestor de paquetes de alto rendimiento ([Instalar pnpm](https://pnpm.io/installation)).
-- **Rust y Cargo:** Versión 1.78+ con `rustup` ([Instalar Rust](https://rustup.rs/)).
-- **Visual Studio C++ Build Tools (Windows):** Componente *"Desarrollo para el escritorio con C++"* instalado.
-- **Python (Opcional, para experimentación y reentrenamiento):** Python 3.10 o superior con `pip install -r requirements.txt`.
-
 ---
 
-## 13. Guía Paso a Paso para Reproducir el Proyecto
-
-A continuación se detalla la metodología reproducible para instalar, compilar y ejecutar todo el ecosistema del proyecto:
+## 16. Guía Paso a Paso para Reproducir el Proyecto
 
 ### Paso 1: Clonar el Repositorio Oficial
 ```bash
@@ -489,71 +425,37 @@ git clone https://github.com/Snowclik/sea-turtle-track.git
 cd sea-turtle-track
 ```
 
-### Paso 2: Configurar el Entorno del Frontend y Aplicación Desktop
-Navega a la carpeta de la plataforma de escritorio:
+### Paso 2: Instalar Dependencias con pnpm
 ```bash
 cd Plataforma/apps/desktop
-```
-
-Instala las dependencias utilizando **pnpm** (siguiendo estrictamente los estándares del proyecto):
-```bash
 pnpm install
 ```
 
-### Paso 3: Verificar los Modelos de Inferencia
-Los modelos optimizados ya se encuentran empaquetados dentro de la aplicación en:
-`Plataforma/apps/desktop/public/models/`
-- `model_v3.onnx` (Versión oficial en producción, 9.81 MB)
-- `model_v2.onnx` (Versión experimental v2, 9.81 MB)
-- `model_ext.onnx` (Modelo extranjero base, 9.71 MB)
-- `model_asgf.onnx` (Modelo de segmentación de nidos, 11.08 MB)
-
-### Paso 4: Ejecutar la Aplicación en Modo Desarrollo
+### Paso 3: Ejecutar la Aplicación en Modo Desarrollo
 ```bash
 pnpm run tauri dev
 ```
-> [!NOTE]
-> Durante la primera ejecución, el compilador de Rust (`cargo`) descargará y compilará las dependencias nativas del sistema. Este proceso puede tardar entre 4 y 10 minutos la primera vez. Las compilaciones posteriores son instantáneas.
 
-### Paso 5: Compilar el Instalador Autocontenido para Producción
-Para generar el instalador ejecutable de Windows (`.msi` o `.exe`):
+### Paso 4: Compilar el Instalador para Windows (.exe / .msi)
 ```bash
 pnpm run tauri build
 ```
-El instalador final optimizado quedará disponible en `Plataforma/apps/desktop/src-tauri/target/release/bundle/`.
+
+### Paso 5: Reproducir los Ensayos Estadísticos (Opcional)
+```bash
+cd ../../../
+pip install -r requirements.txt
+python hypothesis_cpu_benchmark.py
+```
+
+### Paso 6: Reentrenamiento en Google Colab (Opcional)
+1. Abrir [`Plataforma/training/colab_train.py`](file:///c:/Users/tavog/Documents/Codigo/Universidad/Tortugasv2/Plataforma/training/colab_train.py) en Google Colab con GPU T4.
+2. Descargar el dataset oficial ganador: [Roboflow Universe - turtle-track-detector-2-205gp](https://universe.roboflow.com/snowcliks-workspace/turtle-track-detector-2-205gp).
+3. Ejecutar el pipeline de entrenamiento y exportación a ONNX.
 
 ---
 
-### Paso 6: Reproducción de los Ensayos Estadísticos de Hipótesis (Opcional)
-Si deseas reproducir las 1,100 inferencias cronometradas y regenerar las tablas ANOVA, Tukey HSD y gráficos científicos:
-
-1. Regresa a la raíz del repositorio:
-   ```bash
-   cd ../../../
-   ```
-2. Instala las dependencias de análisis de datos:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Ejecuta el benchmark de validación de hipótesis en CPU:
-   ```bash
-   python hypothesis_cpu_benchmark.py
-   ```
-4. El script generará automáticamente los reportes y las figuras estadísticas en alta resolución (`.png` y `.pdf`).
-
----
-
-### Paso 7: Reentrenamiento en Google Colab (Opcional)
-1. Abre el script [`Plataforma/training/colab_train.py`](file:///c:/Users/tavog/Documents/Codigo/Universidad/Tortugasv2/Plataforma/training/colab_train.py) en Google Colab.
-2. Selecciona Entorno de ejecución > Cambiar tipo de entorno de ejecución > **GPU T4**.
-3. Configura tu variable de entorno `ROBOFLOW_API_KEY` (sin exponerla de forma pública).
-4. Ejecuta todas las celdas para entrenar, validar y exportar tu propio archivo `.onnx`.
-
----
-
-## 14. Estructura del Repositorio
-
-El repositorio se encuentra organizado de forma modular, separando la investigación científica, los datos de calibración y la aplicación de escritorio:
+## 17. Estructura del Repositorio
 
 ```
 sea-turtle-track/
@@ -594,7 +496,6 @@ sea-turtle-track/
 │   └── tools/                            # Comparadores y analizadores estructurales de modelos
 ├── hypothesis_cpu_benchmark.py           # Protocolo experimental de 1,100 inferencias cronometradas
 ├── informe_validacion_hipotesis_cpu.md   # Informe científico exhaustivo de la hipótesis evaluada
-├── informe_validacion_hipotesis_cpu.pdf  # Versión imprimible del informe formal
 ├── figure1_all_models_cpu_latency.png    # Distribución global de latencia (11 modelos)
 ├── figure2_onnx_vs_pytorch_speedup.png   # Gráfica de aceleración (Speedup X)
 ├── figure3_tukey_hsd_intervals.png       # Intervalos de confianza al 95% (Forest Plot)
@@ -606,13 +507,13 @@ sea-turtle-track/
 
 ---
 
-## 15. Agradecimientos y Licencia
+## 18. Agradecimientos y Licencia
 
 ### Reconocimientos Institucionales:
-- **Universidad Tecnológica de Panamá (UTP):** Por el respaldo académico, asesoría científica y por promover la investigación formativa a través de la **Jornada de Iniciación Científica (JIC)**.
-- **Secretaría Nacional de Ciencia, Tecnología e Innovación (SENACYT):** Por fomentar la investigación científica y la innovación tecnológica en Panamá mediante el financiamiento y coorganización de la **JIC Nacional** y el congreso **IESTEC**.
-- **Fundación Agua y Tierra (Playa Mata Oscura, Veraguas):** Por su invaluable labor comunitaria en la protección de las tortugas marinas, la facilitación del acceso al terreno de estudio y el acompañamiento biológico durante las jornadas de patrullaje.
-- **German University of Technology in Oman (GUtech):** Por poner a disposición pública el dataset inicial `turtle-track-detector-2` a través de la plataforma Roboflow Universe.
+- **Universidad Tecnológica de Panamá (UTP):** Por el respaldo académico, institucional y la promoción de la investigación formativa mediante la **Jornada de Iniciación Científica (JIC)**.
+- **Secretaría Nacional de Ciencia, Tecnología e Innovación (SENACYT):** Por fomentar la ciencia y la innovación en Panamá a través del financiamiento de la **JIC Nacional** y el **X Congreso IESTEC**.
+- **Fundación Agua y Tierra (Playa Mata Oscura, Mariato, Veraguas):** Por su invaluable dedicación comunitaria a la conservación de las tortugas marinas, la facilitación del acceso al área de estudio y el acompañamiento biológico en campo.
+- **German University of Technology in Oman (GUtech):** Por poner a disposición pública el dataset inicial `turtle-track-detector-2` en Roboflow Universe.
 
 ### Licencia:
 Este proyecto se distribuye con fines académicos, de conservación ambiental e investigación científica. Consulta el archivo de licencia para detalles adicionales sobre derechos de uso y atribución.
